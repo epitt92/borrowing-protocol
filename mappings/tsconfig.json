@@ -1,0 +1,9 @@
+{
+  "extends": "assemblyscript/std/assembly.json",
+  "paths": {
+    "@assemblyscript/loader": ["node_modules/@assemblyscript/loader/index.d.ts"]
+  },
+  "include": [
+    "./**/*.ts"
+  ]
+}

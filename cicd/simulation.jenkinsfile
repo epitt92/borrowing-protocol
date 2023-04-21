@@ -1,0 +1,106 @@
+#!groovy
+
+// Global configs
+properties([
+  disableResume(),
+  disableConcurrentBuilds(abortPrevious: true)
+])
+
+utils.cancelPreviousJobs()
+
+// GLOBAL variables, used in all scopes, sometimes overriden but accessible globally.
+APP           = 'bonq'
+SERVICE       = 'borrowing-protocol'
+MAIN_BRANCH   = 'dev'
+REPO          = 'https://github.com/bonq-ch/borrowing-protocol'
+REPO_URL      = 'registry.digitalocean.com/bonq-ch'
+ENVIRONMENT   = 'simulation'
+
+SERVICES = [
+  'ganache',
+  'runner',
+  'graph-node',
+  'ipfs',
+  'postgres'
+]
+
+COMPOSE_FILE_NAME       = 'docker-compose.simulation.yml'
+COMPOSE_TEST_FILE_NAME  = 'docker-compose.test.yml'
+
+node {
+  stage('Fetch code') {
+    GIT = git.checkoutRepository(REPO)
+  }
+
+  (
+    COMPOSE_NAME,
+    COMPOSE_COMMAND,
+    COMPOSE_TEST_COMMAND
+  ) = dockerCustom.setupCompose(APP, ENVIRONMENT, COMPOSE_FILE_NAME, COMPOSE_TEST_FILE_NAME)
+
+  try {
+    stage('Setup version') {
+      VERSION       = BUILD_NUMBER
+      IMAGE_VERSION = VERSION + '-' + GIT.GIT_COMMIT[0..7].trim()
+    }
+
+    stage('Build containers') {
+      sh 'cp .env.merge .env'
+      SERVICES.each { service ->
+        dockerCustom.setImageName("${REPO_URL}/${SERVICE}-${service}:${IMAGE_VERSION}", service, COMPOSE_FILE_NAME)
+      }
+      sh "${COMPOSE_COMMAND} build --pull"
+    }
+
+    if (env.BRANCH_NAME == MAIN_BRANCH) {
+      SLACK_CHANNEL = '#deployments'
+
+      stage('Prepare manifests') {
+        withCredentials([
+          usernamePassword(
+            credentialsId: 'vault.role',
+            usernameVariable: 'VAULT_ADDR',
+            passwordVariable: 'VAULT_ROLE_ID'
+          ),
+          string(
+            credentialsId: 'vault.secret',
+            variable: 'VAULT_SECRET_ID'
+          )
+        ]) {
+          kube.pelm(SERVICE, SERVICES.join(','), ENVIRONMENT, VERSION, IMAGE_VERSION, REPO_URL)
+        }
+      }
+
+      // App building and pushing logic
+      stage('Push the app') {
+        digitalocean.pushImages(COMPOSE_FILE_NAME, COMPOSE_NAME)
+      }
+
+      // Deploy all manifests that are in out dir, as we don't know how many of them might there be.
+      // Might be a security risk in race conditions and some other cases.
+      stage('Deploy to kubernetes') {
+        withCredentials([
+          string(
+            credentialsId: 'kube.endpoint',
+            variable: 'kubeEndpoint'
+          )
+        ]) {
+          withKubeConfig(credentialsId: 'kube.token', serverUrl: kubeEndpoint) {
+            sh "kubectl apply -f ./out --wait -n ${ENVIRONMENT}"
+            sh 'kubectl delete pod -n simulation -l app=graph-node-reader'
+          }
+        }
+      }
+    }
+  } catch (err) {
+    echo err.getMessage()
+    echo 'Failing and cleaning up'
+    currentBuild.result = 'FAILURE'
+  } finally {
+    stage('Send Slack notification') {
+    // notifications.sendSlackNotification(git.changelogFromCommits(), env.BRANCH_NAME, ENVIRONMENT, SLACK_CHANNEL)
+    }
+
+    utils.postJobCleanup(COMPOSE_NAME, COMPOSE_FILE_NAME)
+  }
+}

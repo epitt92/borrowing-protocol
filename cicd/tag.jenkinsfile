@@ -1,0 +1,139 @@
+#!groovy
+
+// Global configs
+properties([
+  disableResume(),
+  pipelineTriggers([githubPush()]),
+  disableConcurrentBuilds(abortPrevious: true),
+  buildDiscarder(logRotator(numToKeepStr: '10'))
+])
+
+utils.cancelPreviousJobs()
+
+// GLOBAL variables, used in all scopes, sometimes overriden but accessible globally.
+APP                   = 'bonq'
+SERVICE               = 'deployer'
+MAIN_BRANCH           = 'dev'
+REPO                  = 'https://github.com/bonq-ch/borrowing-protocol'
+ENVIRONMENT           = MAIN_BRANCH
+TEST_NET              = 'volta'
+DEPLOYMENT_APPROVERS  = 'gothrek22,drgorb'
+SLACK_CHANNEL         = '#bonq'
+POD_LABEL             = "${JOB_NAME}_${BUILD_ID}".replace('/', '_')
+
+node {
+  try {
+    stage('Fetch code') {
+      GIT = git.checkoutRepository(REPO)
+    }
+
+    stage('Define agent') {
+      withCredentials([
+        usernamePassword(
+          credentialsId: 'vault.role',
+          usernameVariable: 'VAULT_ADDR',
+          passwordVariable: 'VAULT_ROLE_ID'
+        ),
+        string(credentialsId: 'vault.secret', variable: 'VAULT_SECRET_ID')
+      ]) {
+        sh(script: './cicd/pod_generator.py -o agent.yaml -s qa/deployer', returnStdout: true)
+        podYaml = readFile "${WORKSPACE}/agent.yml"
+        sh 'rm -f agent.yml'
+      }
+    }
+
+    try {
+      podTemplate(
+        yaml: podYaml,
+        showRawYaml: 'false',
+        nodeUsageMode: 'EXCLUSIVE',
+        podRetention: onFailure()
+      ) {
+        node(POD_LABEL) {
+          container(SERVICE) {
+            stage('Checkout tag') {
+              GIT = git.checkoutRepositoryByBranch(REPO, "refs/tags/${TAG_NAME}")
+            }
+
+            stage('Setup workspace') {
+              sh 'chown -R root:root .'
+              sh  'rm -rf deployments_package/deployments/*'
+            }
+
+            stage('Install packages') {
+              sh 'npm install --legacy-peer-deps'
+            }
+
+            stage('Prepare deploy') {
+              sh 'npm run compile'
+            }
+
+            stage('Deploy') {
+              sh "npm run deploy:${TEST_NET}"
+            }
+
+            stage('Test') {
+              sh "npm run deploy:${TEST_NET}:test"
+            }
+
+            stage('Bump version') {
+              sh "cd ${WORKSPACE}/deployments_package && npm version ${TAG_NAME} || exit 0"
+            }
+
+            stage('Deploy testnet') {
+              sh """#!/bin/bash -e
+                npm run prepare:manifest -- --network ${TEST_NET}-test
+                npx graph codegen
+                npm run graph:create:dev
+                echo ${TAG_NAME} | npm run graph:deploy:dev:version
+              """
+            }
+
+            stage('Deploy graph') {
+              sh "npm run prepare:manifest -- --network ${TEST_NET}-test"
+              sh 'npm run graph:create:dev:test'
+              sh 'npm run graph:deploy:dev:test'
+            }
+            GIT_DIFF = sh(
+              script: 'git diff-tree -r --name-only --merge-base --diff-filter=ACM' +
+                      " origin/${MAIN_BRANCH} HEAD | grep contracts | wc -l",
+              returnStdout: true
+            )
+            if (GIT_DIFF > 0) {
+              stage('Run migrations') {
+                sh 'cp constants.ts ./deployments_package/constants.ts'
+              // sh 'npx db-migrate up --config migrations/database.json -e prod'
+              }
+
+              stage('Relase new version') {
+                sh "cd ${WORKSPACE}/deployments_package && npm run build"
+                sh "npm config set '//registry.npmjs.org/:_authToken' '${NODE_AUTH_TOKEN}'"
+                sh "cd ${WORKSPACE}/deployments_package && npm publish"
+              }
+
+              stage('Commit and push deployments_package') {
+                sh 'git add deployments_package'
+                sh 'git remote set-url origin git@github.com:bonq-ch/borrowing-protocol.git'
+                git.push("Release ${TAG_NAME}", 'git.ssh.bp', MAIN_BRANCH)
+              }
+            }
+          }
+        }
+      }
+    } catch(err) {
+      error 'Check output above'
+    } finally {
+      stage('Kube cleanup') {
+        kube.deleteJenkinsPods('kube', POD_LABEL)
+      }
+    }
+  } catch (err) {
+    echo err.getMessage()
+    echo 'Failing and cleaning up'
+    currentBuild.result = 'FAILURE'
+  } finally {
+    stage('Send Slack notification') {
+    // notifications.sendSlackNotification(git.changelogFromCommits(), env.BRANCH_NAME, ENVIRONMENT, SLACK_CHANNEL)
+    }
+  }
+}

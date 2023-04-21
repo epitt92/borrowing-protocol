@@ -1,0 +1,12 @@
+/build/
+/.idea/
+/node_modules/
+/reports/
+/cache/
+/src/
+/artifacts/
+/.env
+.bin
+/mappings/
+/features/
+/generated/

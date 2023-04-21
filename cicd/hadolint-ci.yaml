@@ -1,0 +1,6 @@
+ignored:
+  - DL3041 # Specify version with dnf install -y <package>-<version>
+  - DL4006 # Set the SHELL option -o pipefail before RUN with a pipe in
+  - DL3016 # Pin version of npm install
+  - DL3007 # Pin version of nginx image
+  - DL3060 # `yarn cache clean` missing

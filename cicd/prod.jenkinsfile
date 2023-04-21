@@ -1,0 +1,123 @@
+#!groovy
+
+// Global configs
+properties([
+  disableResume(),
+  pipelineTriggers([githubPush()]),
+  disableConcurrentBuilds(abortPrevious: true),
+  parameters([
+    choice(
+      name: 'ENVIRONMENT',
+      choices: ['Please select an env', 'staging', 'production']
+    ),
+    gitParameter(name: 'VERSION', selectedValue: 'TOP', sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_TAG')
+  ]),
+  buildDiscarder(logRotator(numToKeepStr: '10'))
+])
+
+utils.cancelPreviousJobs()
+
+// GLOBAL variables, used in all scopes, sometimes overriden but accessible globally.
+APP         = 'bonq'
+SERVICE     = 'deployer'
+MAIN_BRANCH = 'dev'
+REPO        = 'https://github.com/bonq-ch/borrowing-protocol'
+ENVIRONMENT = params.ENVIRONMENT
+TEST_NET    = 'volta'
+
+DEPLOYMENT_APPROVERS  = 'gothrek22,drgorb'
+
+node {
+  try {
+    stage('Define agent') {
+      POD_OPTIONS = kube.setupKubeAgent(SERVICE, 'registry.digitalocean.com/bonq-ch/deployer:latest')
+    }
+
+    stage('Confirmation') {
+      utils.waitForInput(
+        'Proceed with deployment? You must be whitelisted or be an admin in order to approve.',
+        5,
+        DEPLOYMENT_APPROVERS
+      )
+    }
+
+    podTemplate(POD_OPTIONS) {
+      node(POD_LABEL) {
+        container(SERVICE) {
+          withVault(
+            configuration: [
+              timeout: 60,
+              vaultCredentialId: 'vault.jenkins.approle',
+              vaultUrl: 'https://vault.bonq.ch',
+            ],
+            vaultSecrets: [
+              [
+                path: "kv/${ENVIRONMENT}/deployer",
+                engineVersion: 2,
+                secretValues: [
+                  [vaultKey: 'GRAPH_NODE_ENDPOINT'],
+                  [vaultKey: 'IPFS_ENDPOINT'],
+                  [vaultKey: 'CHAIN_RPC_ENDPOINT']
+                ]
+              ]
+            ]
+          ) {
+            stage('Checkout tag source') {
+              GIT = git.checkoutRepositoryByBranch(REPO, "refs/tags/${TAG_NAME}")
+            }
+
+            sh(script: """#!/bin/bash -e
+              cp .env.merge .env
+              chown -R root:root .
+              echo "DEPLOY_KEY=\$DEPLOY_KEY" >> .env
+              echo "GRAPH_NODE_ENDPOINT=\$GRAPH_NODE_ENDPOINT" >> .env
+              echo "CHAIN_RPC_ENDPOINT=\$CHAIN_RPC_ENDPOINT" >> .env
+              npm install --legacy-peer-deps
+
+              npm run compile
+              npm run deploy:${TEST_NET}
+              npm run deploy:${TEST_NET}:test
+
+              cd ./deployments_package
+              npm version ${TAG_NAME}
+              cd ..
+
+              npm run prepare:manifest
+              npx graph codegen
+              npm run graph:create:dev
+
+              echo ${TAG_NAME} | npm run graph:deploy:dev:version
+
+              npm run prepare:manifest -- --network ${TEST_NET}-test
+              npm run graph:create:dev:test
+              npm run graph:deploy:dev:test
+              cp constants.ts ./deployments_package/constants.ts
+
+              cd ./deployments_package
+              npm run build && npm publish
+              npx db-migrate up --config migrations/database.json -e prod
+              exit 0
+            """)
+          }
+        }
+      }
+    }
+  } catch (err) {
+    echo err.getMessage()
+    echo 'Failing and cleaning up'
+    currentBuild.result = 'FAILURE'
+  } finally {
+    stage('Send Slack notification') {
+    // notifications.sendSlackNotification(git.changelogFromCommits(), env.BRANCH_NAME, ENVIRONMENT, SLACK_CHANNEL)
+    }
+
+    node(POD_LABEL) {
+      container(SERVICE) {
+        sh "exit 0"
+      }
+    }
+
+    utils.cleanupWorkspace()
+    cleanWs()
+  }
+}

@@ -1,0 +1,142 @@
+#!groovy
+
+// Global configs
+properties([
+  disableResume(),
+  pipelineTriggers([githubPush()]),
+  disableConcurrentBuilds(abortPrevious: true),
+  buildDiscarder(logRotator(numToKeepStr: '10'))
+])
+
+utils.cancelPreviousJobs()
+
+// GLOBAL variables, used in all scopes, sometimes overriden but accessible globally.
+APP           = 'bonq'
+SERVICE       = 'deployer'
+MAIN_BRANCH   = 'dev'
+REPO          = 'https://github.com/bonq-ch/borrowing-protocol'
+REPO_URL      = 'registry.digitalocean.com/bonq-ch'
+ENVIRONMENT   = MAIN_BRANCH
+TEST_NET      = 'volta'
+SLACK_CHANNEL = '#deployments'
+POD_LABEL     = "${JOB_NAME}_${BUILD_ID}".replace('/', '_')
+
+COMPOSE_FILE_NAME       = 'docker-compose.yaml'
+COMPOSE_TEST_FILE_NAME  = 'docker-compose.test.yml'
+
+node {
+  stage('Fetch code') {
+    GIT = git.checkoutRepository(REPO)
+  }
+
+  (
+    COMPOSE_NAME,
+    COMPOSE_COMMAND,
+    COMPOSE_TEST_COMMAND
+  ) = dockerCustom.setupCompose(APP, ENVIRONMENT, COMPOSE_FILE_NAME, COMPOSE_TEST_FILE_NAME)
+
+  try {
+    if (env.BRANCH_NAME.contains('PR')) {
+      stage('Define agent') {
+        withCredentials([
+          usernamePassword(
+            credentialsId: 'vault.role',
+            usernameVariable: 'VAULT_ADDR',
+            passwordVariable: 'VAULT_ROLE_ID'
+          ),
+          string(credentialsId: 'vault.secret', variable: 'VAULT_SECRET_ID')
+        ]) {
+          sh(script: './cicd/pod_generator.py -o agent.yml -s qa/deployer', returnStdout: true)
+          podYaml = readFile "${WORKSPACE}/agent.yml"
+          sh 'rm -f agent.yml'
+        }
+      }
+
+      try {
+        podTemplate(
+          yaml: podYaml,
+          showRawYaml: 'false',
+          nodeUsageMode: 'EXCLUSIVE',
+          podRetention: onFailure(),
+          label: POD_LABEL
+        ) {
+          node(POD_LABEL) {
+            container(SERVICE) {
+              stage('Checkout dev source') {
+                GIT = git.checkoutRepository(REPO)
+              }
+
+              stage('Setup workspace') {
+                sh 'rm -rf deployments_package/deployments/*'
+              }
+
+              stage('Install packages') {
+                sh 'npm install --legacy-peer-deps'
+              }
+
+              stage('Prepare deploy') {
+                sh 'npm run compile'
+              }
+
+              stage('Deploy') {
+                sh "npm run deploy:${TEST_NET}:test"
+              }
+
+              stage('Test') {
+                sh "npm run graph-test:merge:${TEST_NET}-test"
+              }
+            }
+          }
+        }
+      } catch(err) {
+        error 'Check output above'
+      } finally {
+        stage('Kube cleanup') {
+          kube.deleteJenkinsPods('kube', POD_LABEL)
+        }
+      }
+    } else {
+      stage('Build containers') {
+        sh 'cp .env.merge .env'
+        imageURL = "${REPO_URL}/${SERVICE}:${BUILD_NUMBER}-" + GIT.GIT_COMMIT[0..7].trim()
+        dockerCustom.setImageName(imageURL, SERVICE, COMPOSE_TEST_FILE_NAME)
+        sh "${COMPOSE_TEST_COMMAND} build --pull"
+      }
+
+      stage('Run tests') {
+        sh 'mkdir -p reports/cucumber-json-reports'
+        sh 'cp .env.push .env'
+        withVault(
+          configuration: [
+            timeout: 60,
+            vaultCredentialId: 'vault.jenkins.approle',
+            vaultUrl: 'https://vault.bonq.ch',
+          ],
+          vaultSecrets: [
+            [
+              path: 'kv/dev/deployer',
+              engineVersion: 2,
+              secretValues: [
+                [vaultKey: 'INFURA_API_KEY']
+              ]
+            ]
+          ]
+        ) {
+          sh "echo 'INFURA_API_KEY=${INFURA_API_KEY}' >> .env"
+        }
+        sh "${COMPOSE_TEST_COMMAND} run --rm deployer /app/docker/test.sh"
+        sh "${COMPOSE_TEST_COMMAND} down -v"
+      }
+    }
+  } catch (err) {
+    echo err.getMessage()
+    echo 'Failing and cleaning up'
+    currentBuild.result = 'FAILURE'
+  } finally {
+    // stage('Send Slack notification') {
+    //   notifications.sendSlackNotification(git.changelogFromCommits(), env.BRANCH_NAME, ENVIRONMENT, SLACK_CHANNEL)
+    // }
+    sh 'touch .env'
+    utils.postJobCleanup(COMPOSE_NAME, COMPOSE_TEST_FILE_NAME)
+  }
+}

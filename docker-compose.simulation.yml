@@ -1,0 +1,78 @@
+version: '3.7'
+services:
+  ganache:
+    build:
+      context: .
+      dockerfile: simulation/docker/runner.dockerfile
+    command: /app/simulation/docker/ganache.sh
+    environment:
+      NETWORK: docker
+    networks:
+      - bonq
+
+  runner:
+    build:
+      context: .
+      dockerfile: simulation/docker/runner.dockerfile
+    command: /app/simulation/docker/runner.sh
+    environment:
+      RPC_URL: 'http://ganache:8545'
+    networks:
+      - bonq
+    depends_on:
+      - ganache
+      - graph-node
+
+  graph-node:
+    image: graphprotocol/graph-node
+    ports:
+      - '8000:8000'
+      - '8001:8001'
+      - '8020:8020'
+      - '8030:8030'
+      - '8040:8040'
+    depends_on:
+      - ipfs
+      - postgres
+    networks:
+      - bonq
+    environment:
+      postgres_host: postgres
+      postgres_user: graph-node
+      postgres_pass: let-me-in
+      postgres_db: graph-node
+      ipfs: 'ipfs:5001'
+      ethereum: 'mainnet:http://ganache:8545'
+      GRAPH_LOG: info
+
+  ipfs:
+    image: ipfs/go-ipfs:v0.4.23
+    networks:
+      - bonq
+    ports:
+      - '5001:5001'
+    volumes:
+      - sim-ipfs:/data/ipfs
+
+  postgres:
+    image: postgres
+    ports:
+      - '5432:5432'
+    command: ["postgres", "-cshared_preload_libraries=pg_stat_statements"]
+    networks:
+      - bonq
+    environment:
+      POSTGRES_USER: graph-node
+      POSTGRES_PASSWORD: let-me-in
+      POSTGRES_DB: graph-node
+    volumes:
+      - sim-postgres:/var/lib/postgresql/data
+
+volumes:
+  sim-ipfs:
+  sim-postgres:
+  ganache:
+
+networks:
+  bonq:
+    name: bonq

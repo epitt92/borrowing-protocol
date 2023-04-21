@@ -1,0 +1,28 @@
+common: &common
+  name: postgres
+  serviceSpecificSecret: False
+  affinity: False
+  uid: 0
+  ports:
+    - name: postgres
+      source: 5432
+      target: 5432
+  image: postgres
+  environment:
+    - name: POSTGRES_USER
+      value: graph-node
+    - name: POSTGRES_PASSWORD
+      value: let-me-in
+    - name: POSTGRES_DB
+      value: graph-node
+  resources:
+    limits:
+      cpu: 250m
+      memory: 1G
+    requests:
+      cpu: 250m
+      memory: 1G
+
+simulation:
+  <<: *common
+  namespace: simulation

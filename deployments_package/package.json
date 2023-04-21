@@ -1,0 +1,21 @@
+{
+  "name": "@bonq/borrowing_protocol_deployments",
+  "version": "1.0.4",
+  "description": "Package that contains ABIs and typings of built contracts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bonq-ch/borrowing-protocol.git"
+  },
+  "author": "Bonq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bonq-ch/borrowing-protocol/issues"
+  },
+  "homepage": "https://github.com/bonq-ch/borrowing-protocol#readme"
+}

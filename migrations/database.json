@@ -1,0 +1,22 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "postgres",
+    "host": "db",
+    "database": "postgres",
+    "port": "5432",
+    "ssl": "true",
+    "schema": "chain1"
+  },
+  "prod": {
+    "driver": "pg",
+    "user": { "ENV": "DATABASE_USERNAME" },
+    "password": { "ENV": "DATABASE_PASSWORD" },
+    "host": { "ENV": "DATABASE_HOST" },
+    "database": { "ENV": "DATABASE_NAME" },
+    "port": { "ENV": "DATABASE_PORT" },
+    "ssl": "true",
+    "schema": { "ENV": "DATABASE_SCHEMA" }
+  }
+}

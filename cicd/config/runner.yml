@@ -1,0 +1,16 @@
+common: &common
+  name: runner
+  serviceSpecificSecret: True
+  secretPath: simulation/runner
+  affinity: False
+  resources:
+    limits:
+      cpu: 2
+      memory: 2Gi
+    requests:
+      cpu: 2
+      memory: 2Gi
+
+simulation:
+  <<: *common
+  namespace: simulation

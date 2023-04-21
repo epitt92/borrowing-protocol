@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  hardhat:
+    env_file: .env.example
+    command: /app/hardhat/docker/entrypoint.sh
+    volumes:
+      - ./:/app
+    networks:
+      - bonq
+    ports:
+      - 8545:8545
+
+networks:
+  bonq:
+    name: bonq

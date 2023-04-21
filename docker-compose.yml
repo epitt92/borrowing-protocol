@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  hardhat:
+    build:
+      context: .
+      dockerfile: hardhat/docker/Dockerfile
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+      cache_from:
+        - registry.digitalocean.com/bonq-ch/hardhat:latest
+    image: hardhat

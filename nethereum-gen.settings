@@ -1,0 +1,7 @@
+{
+    "projectName": "BorrowingProtocol",
+    "namespace": "BorrowingProtocol.Contracts",
+    "lang": 0,
+    "autoCodeGen": true,
+    "projectPath": "../"
+}

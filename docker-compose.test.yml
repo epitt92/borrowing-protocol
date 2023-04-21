@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  deployer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        UID: ${UID:-1000}
+    env_file: .env
+    volumes:
+      - ./:/app
+      - ./tmp:/root/.config

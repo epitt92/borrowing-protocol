@@ -1,0 +1,21 @@
+common: &common
+  name: ganache
+  command: [/app/simulation/docker/ganache.sh]
+  serviceSpecificSecret: True
+  secretPath: simulation/ganache
+  affinity: False
+  ports:
+    - name: ganache
+      source: 8545
+      target: 8545
+  resources:
+    limits:
+      cpu: 250m
+      memory: 500M
+    requests:
+      cpu: 150m
+      memory: 250M
+
+simulation:
+  <<: *common
+  namespace: simulation

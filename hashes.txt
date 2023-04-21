@@ -1,0 +1,211 @@
+contracts/APToken.sol: constructor( 74da67 
+contracts/BONQ-staking.sol: constructor() initializer  9b6b1a 
+contracts/BONQ-staking.sol: function initialize(address _bonqToken) public initializer  5d5015 
+contracts/BONQ-staking.sol: function _authorizeUpgrade(address) internal override onlyOwner  e214f4 
+contracts/BONQ-staking.sol: function name() public view virtual returns (string memory)  5abf9a 
+contracts/BONQ-staking.sol: function setMinuteDecayFactor(uint256 _newMinuteDecayFactor) public onlyOwner  0efe23 
+contracts/BONQ-staking.sol: function setAlphaValue(uint256 _alpha) public onlyOwner  e3ecaf 
+contracts/BONQ-staking.sol: function setBetaValue(uint256 _beta) public onlyOwner  5bcf17 
+contracts/BONQ-staking.sol: function setMaxFeeCollateralRatio(uint256 _maxFeeCollateralRatio) public onlyOwner  3a28f6 
+contracts/BONQ-staking.sol: function setInitialLastFee(uint256 _timestamp) public onlyOwner  9a2cb2 
+contracts/BONQ-staking.sol: function calcDecayedBaseRate(uint256 _currentBaseRate) external view override returns (uint256)  9d1538 
+contracts/BONQ-staking.sol: function getRedemptionFeeRatio(uint256 _collateralRatio, uint256 _mcr) public pure override returns (uint256)  e6d471 
+contracts/BONQ-staking.sol: function getBorrowingFee(uint256 _amount) public view override returns (uint256)  e15bec 
+contracts/BONQ-staking.sol: function setFactory(address _factoryAddress) external onlyOwner  191f1c 
+contracts/BONQ-staking.sol: function updateStableCoin() external  588b45 
+contracts/BONQ-staking.sol: function stake(uint256 _bonqAmount) external override  8e3efa 
+contracts/BONQ-staking.sol: function unstake(uint256 _bonqAmount) external override  c195a9 
+contracts/BONQ-staking.sol: function takeFees(uint256 _amount) external override returns (bool)  87bbbf 
+contracts/BONQ-staking.sol: function increaseBaseRate(uint256 _increase) external override returns (uint256)  55c2bf 
+contracts/BONQ-staking.sol: function redeemReward( b65639 
+contracts/BONQ-staking.sol: function totalStake() external view override returns (uint256)  05bcde 
+contracts/BONQ-staking.sol: function getUnpaidStableCoinGain(address _user) external view override returns (uint256)  b598a6 
+contracts/BONQ-staking.sol: function getRewardsTotal() external view override returns (uint256)  49a9e8 
+contracts/BONQ-staking.sol: function _getPendingStableCoinGain(address _user) internal view returns (uint256)  4bf7cc 
+contracts/BONQ-staking.sol: function _getUnpaidStableCoinGain(address _user) internal view returns (uint256)  91d765 
+contracts/BONQ-staking.sol: function _recordStableCoinGain(address _user) internal  3b9a6f 
+contracts/BONQ-staking.sol: function _updateUserSnapshot(address _user) internal  c7904f 
+contracts/BONQ-staking.sol: function _requireUserHasStake(uint256 currentStake) internal pure  5cffaf 
+contracts/BONQ-staking.sol: function _requireNonZeroAmount(uint256 _amount) internal pure  f41b4d 
+contracts/arbitrage-pool.sol: constructor(address _factory, address _router)  3eea59 
+contracts/arbitrage-pool.sol: function _apTokenPrice(address _collateralToken, IMintableToken _apToken) internal view returns (uint256)  947830 
+contracts/arbitrage-pool.sol: function getAPtokenPrice(address _collateralToken) external view returns (uint256)  fcbf0f 
+contracts/arbitrage-pool.sol: function deposit(address _collateralToken, uint256 _amount) public nonReentrant  150aa0 
+contracts/arbitrage-pool.sol: function withdraw(address _collateralToken, uint256 _amount) public nonReentrant  776a46 
+contracts/arbitrage-pool.sol: function arbitrage( 9669f0 
+contracts/arbitrage-pool.sol: function addToken(address _collateralToken) public  fda745 
+contracts/arbitrage-pool.sol: function batchApproveRouter(address[] calldata _collateralTokens) public  cf6fea 
+contracts/arbitrage-pool.sol: function transferExtraCollateral( 581514 
+contracts/bonq-proxy.sol: constructor(address _logic, bytes memory _data) payable ERC1967Proxy(_logic, _data)  70bdcb 
+contracts/chainlink-price-feed.sol: constructor(address _oracle, address _token)  bd8adf 
+contracts/chainlink-price-feed.sol: function price() public view override returns (uint256)  29cab1 
+contracts/chainlink-price-feed.sol: function pricePoint() public view override returns (uint256)  172b7d 
+contracts/community-liquidation-pool.sol: constructor(address _factory, address _token)  65151f 
+contracts/community-liquidation-pool.sol: function approveTrove(address _trove) public override  9bc9ea 
+contracts/community-liquidation-pool.sol: function unapproveTrove(address _trove) public override  17d3a9 
+contracts/community-liquidation-pool.sol: function claimCollateralAndDebt(uint256 _unclaimedCollateral, uint256 _unclaimedDebt) external override  6d557e 
+contracts/community-liquidation-pool.sol: function liquidate() external override  f9ed51 
+contracts/external-price-feed.sol: constructor( ada804 
+contracts/external-price-feed.sol: modifier onlyOracle()  cfe9c1 
+contracts/external-price-feed.sol: function addOracle(address _newOracle) public onlyOwner  bc0a4c 
+contracts/external-price-feed.sol: function removeOracle(address _oracleToRemove) public onlyOwner  5f300d 
+contracts/external-price-feed.sol: function setPrice(uint256 _price) external override onlyOracle  2724d1 
+contracts/external-price-feed.sol: function pricePoint() public view override returns (uint256)  a08cea 
+contracts/external-price-feed.sol: function price() public view override returns (uint256)  ad4f20 
+contracts/external-price-feed.sol: function token() external view override returns (address)  8c3f13 
+contracts/fixed-supply-token.sol: constructor( 09d618 
+contracts/mintable-token-owner.sol: constructor(address _token) Ownable()  8edf54 
+contracts/mintable-token-owner.sol: function mint(address _recipient, uint256 _amount) public  b1aec0 
+contracts/mintable-token-owner.sol: function transferTokenOwnership(address _newOwner) public onlyOwner  64e11c 
+contracts/mintable-token-owner.sol: function addMinter(address _newMinter) public onlyOwner  89d950 
+contracts/mintable-token-owner.sol: function revokeMinter(address _minter) public onlyOwner  cc8293 
+contracts/mintable-token.sol: constructor(string memory name, string memory symbol) ERC20(name, symbol)  e21467 
+contracts/mintable-token.sol: function mint(address recipient, uint256 amount) public onlyOwner  91c4ab 
+contracts/mintable-token.sol: function burn(uint256 amount) public  2ae0ea 
+contracts/original-trove-factory.sol: function name() public view override returns (string memory)  b6c83f 
+contracts/price-feed.sol: constructor( a3c3cb 
+contracts/price-feed.sol: function update(bool savePrevious) external onlyOwner  848434 
+contracts/price-feed.sol: function _getUpdatePrices(uint256 timeElapsed) d92c21 
+contracts/price-feed.sol: function pricePoint() external view override returns (uint256)  032d6e 
+contracts/price-feed.sol: function price() external view override returns (uint256)  a5a97c 
+contracts/price-feed.sol: function consult(address _token, uint256 amountIn) external view returns (uint256 amountOut)  f742b8 
+contracts/price-feed.sol: function token() external view override returns (address)  32982f 
+contracts/service-fee-generator.sol: function initialize( da69e0 
+contracts/service-fee-generator.sol: function isPaid() external view override returns (bool)  8a5a74 
+contracts/service-fee-generator.sol: function withdrawFee(address _newNextTrove) external override  c93e1f 
+contracts/splittable-token.sol: constructor( 954656 
+contracts/splittable-token.sol: function totalSupply() public view override returns (uint256)  6f8f13 
+contracts/splittable-token.sol: function transferFrom( 2249db 
+contracts/splittable-token.sol: function transfer(address to, uint256 amount) public override returns (bool)  25d764 
+contracts/splittable-token.sol: function _checkBalance(address _account) private  85a3cc 
+contracts/splittable-token.sol: function balanceOf(address _account) public view override returns (uint256)  d32d48 
+contracts/splittable-token.sol: function increaseSupply(uint256 _multiplier) public onlyOwner  0abffa 
+contracts/stability-pool.sol: constructor(address _factory, address _bonqToken)  3f8955 
+contracts/stability-pool.sol: function initialize() public initializer  3682ea 
+contracts/stability-pool.sol: function _authorizeUpgrade(address) internal override onlyOwner  96c9ce 
+contracts/stability-pool.sol: function deposit(uint256 _amount) public override nonReentrant  92ded1 
+contracts/stability-pool.sol: function withdraw(uint256 _amount) public override nonReentrant  9b6407 
+contracts/stability-pool.sol: function redeemReward() public override  6aecef 
+contracts/stability-pool.sol: function liquidate() public override  b27341 
+contracts/stability-pool.sol: function getWithdrawableDeposit(address staker) public view override returns (uint256)  3909dd 
+contracts/stability-pool.sol: function arbitrage( 959222 
+contracts/stability-pool.sol: function getCollateralReward(address _token, address _depositor) external view returns (uint256)  5c93a8 
+contracts/stability-pool.sol: function getDepositorBONQGain(address _depositor) external view override returns (uint256)  299f73 
+contracts/stability-pool.sol: function setBONQPerMinute(uint256 _bonqPerMinute) external override onlyOwner  952481 
+contracts/stability-pool.sol: function setBONQAmountForRewards(uint256 _amountForRewards) external override onlyOwner  ca870b 
+contracts/stability-pool.sol: function setRouter(address _router) public onlyOwner  7779e6 
+contracts/stability-pool.sol: function _redeemReward() private  9fc6dd 
+contracts/stability-pool.sol: function _redeemCollateralReward() internal  f9872f 
+contracts/stability-pool.sol: function _redeemBONQReward() internal  ed9c4a 
+contracts/stability-pool.sol: function _updateDepositAndSnapshots(address _depositor, uint256 _newValue) private  cce7fc 
+contracts/stability-pool.sol: function _updateRewardSumAndProduct( 95dc23 
+contracts/stability-pool.sol: function _updateP(uint256 _stableCoinChangePerUnitStaked, bool loss) internal  894275 
+contracts/stability-pool.sol: function _updateG(uint256 _bonqIssuance) internal  114c23 
+contracts/stability-pool.sol: function _getDepositorCollateralGains(address _depositor) internal view returns (TokenToUint256[] memory)  42b315 
+contracts/stability-pool.sol: function _getCollateralGainsArrayFromSnapshots(uint256 _initialDeposit, Snapshots memory _snapshots) 384baf 
+contracts/stability-pool.sol: function _getCollateralGainFromSnapshots( 5eb6ae 
+contracts/stability-pool.sol: function _getDepositorBONQGain(address _depositor, uint256 _marginalBONQGain) internal view returns (uint256)  9fe063 
+contracts/stability-pool.sol: function _getCompoundedDepositFromSnapshots(uint256 _initialStake, Snapshots memory _snapshots) 1ea7ec 
+contracts/stability-pool.sol: function _computeRewardsPerUnitStaked( 823a96 
+contracts/stability-pool.sol: function _triggerBONQdistribution() internal  a2fef1 
+contracts/stability-pool.sol: function _issueBONQRewards() internal returns (uint256)  60dff7 
+contracts/stability-pool.sol: function _computeBONQPerUnitStaked(uint256 _bonqIssuance, uint256 _totalStableCoinDeposits) b66f82 
+contracts/stability-pool.sol: function _sendCollateralRewardsToDepositor(TokenToUint256[] memory _depositorCollateralGains) internal  7292ff 
+contracts/stability-pool.sol: function _sendBONQRewardsToDepositor(uint256 _bonqGain) internal  35e27a 
+contracts/token-to-price-feed.sol: function tokenPrice(address _token) public view returns (uint256)  bfa3d5 
+contracts/token-to-price-feed.sol: function setTokenPriceFeed( f0925e 
+contracts/token-to-price-feed.sol: function emitPriceUpdate( e2b188 
+contracts/trove-factory.sol: modifier troveExists(address _token, address _trove)  6e382c 
+contracts/trove-factory.sol: function initialize(address _stableCoin, address _feeRecipient) public initializer  55db23 
+contracts/trove-factory.sol: function _authorizeUpgrade(address newImplementation) internal override onlyOwner  15e295 
+contracts/trove-factory.sol: function name() public view virtual returns (string memory); fa0ccc 
+contracts/trove-factory.sol: function troveCount(address _token) public view override returns (uint256)  cb6c6e 
+contracts/trove-factory.sol: function lastTrove(address _token) public view override returns (address)  080590 
+contracts/trove-factory.sol: function firstTrove(address _token) public view override returns (address)  18e6ab 
+contracts/trove-factory.sol: function nextTrove(address _token, address _trove) public view override returns (address)  e7d9d6 
+contracts/trove-factory.sol: function prevTrove(address _token, address _trove) public view override returns (address)  23508a 
+contracts/trove-factory.sol: function containsTrove(address _token, address _trove) public view override returns (bool)  1a6cc8 
+contracts/trove-factory.sol: function totalCollateral(address _token) public view override returns (uint256)  8e50bf 
+contracts/trove-factory.sol: function totalDebtForToken(address _token) public view override returns (uint256)  5bf29c 
+contracts/trove-factory.sol: function tokenCollateralization(address _token) public view returns (uint256)  d16682 
+contracts/trove-factory.sol: function liquidationPool(address _token) public view override returns (ILiquidationPool)  345cba 
+contracts/trove-factory.sol: function getRedemptionFeeRatio(address _trove) public view override returns (uint256)  1d016f 
+contracts/trove-factory.sol: function getRedemptionFee(uint256 _feeRatio, uint256 _amount) public pure override returns (uint256)  0661f8 
+contracts/trove-factory.sol: function getRedemptionAmount(uint256 _feeRatio, uint256 _amount) public pure returns (uint256)  a6e743 
+contracts/trove-factory.sol: function getBorrowingFee(uint256 _amount) public view override returns (uint256)  85b979 
+contracts/trove-factory.sol: function setTroveImplementation(address _troveImplementation) public onlyOwner  933cef 
+contracts/trove-factory.sol: function setTokenOwner() public onlyOwner  14fe11 
+contracts/trove-factory.sol: function setServiceFeeImplementation(address _serviceFeeImplementation) public onlyOwner  37237c 
+contracts/trove-factory.sol: function setFeeRecipient(address _feeRecipient) public onlyOwner  f293c2 
+contracts/trove-factory.sol: function setTokenPriceFeed(address _tokenPriceFeed) public onlyOwner  fca63e 
+contracts/trove-factory.sol: function setLiquidationPool(address _token, address _liquidationPool) public onlyOwner  3c6b4f 
+contracts/trove-factory.sol: function setStabilityPool(address _stabilityPool) external override onlyOwner  350f5e 
+contracts/trove-factory.sol: function setArbitragePool(address _arbitragePool) external override onlyOwner  16de3a 
+contracts/trove-factory.sol: function setWETH(address _WETH, address _liquidationPool) external override onlyOwner  058c22 
+contracts/trove-factory.sol: function transferTokenOwnership(address _newOwner) public onlyOwner  4faa95 
+contracts/trove-factory.sol: function transferTokenOwnerOwnership(address _newOwner) public onlyOwner  01bc41 
+contracts/trove-factory.sol: function togglePause() public onlyOwner  f2a3a6 
+contracts/trove-factory.sol: function updateTotalCollateral( 08256b 
+contracts/trove-factory.sol: function increaseCollateralNative(address _trove, address _newNextTrove) public payable override  8f3eb2 
+contracts/trove-factory.sol: function cloneImplementation(address _implementation) internal returns (address clone)  689f01 
+contracts/trove-factory.sol: function createNewServiceFee( daa708 
+contracts/trove-factory.sol: function createTrove(address _token) public override returns (ITrove trove)  373e74 
+contracts/trove-factory.sol: function createTroveAndBorrow( f0001f 
+contracts/trove-factory.sol: function removeTrove(address _token, address _trove) public override troveExists(_token, _trove)  48d896 
+contracts/trove-factory.sol: function insertTrove(address _token, address _newNextTrove) public override troveExists(_token, msg.sender)  9a212f 
+contracts/trove-factory.sol: function _redeemFullTrove(address _recipient, address _trove) 52436e 
+contracts/trove-factory.sol: function _redeemPartTrove( 0c05eb 
+contracts/trove-factory.sol: function commitFullRedemptions(RedemptionInfo memory _redInfo, uint256 _maxRate) 2e36f6 
+contracts/trove-factory.sol: function commitFullRedeem(RedemptionInfo memory _redInfo, uint256 _currentFeeRatio) 4f1dd3 
+contracts/trove-factory.sol: function commitPartRedeem( 1b7d22 
+contracts/trove-factory.sol: function redeemStableCoinForCollateral( 2dfe9c 
+contracts/trove-factory.sol: function updateTotalDebt(uint256 _amount, bool _borrow) public override  98ec33 
+contracts/trove-factory.sol: function emitLiquidationEvent( d486af 
+contracts/trove-factory.sol: function emitTroveDebtUpdate( 6e10cd 
+contracts/trove-factory.sol: function emitTroveCollateralUpdate( 8a0eb3 
+contracts/trove.sol: modifier onlyFactory()  98f639 
+contracts/trove.sol: modifier onlyTroveOwner()  686e2d 
+contracts/trove.sol: modifier whenFactoryNotPaused()  e92f63 
+contracts/trove.sol: constructor(address _factory)  47bd07 
+contracts/trove.sol: function initialize(address _token, address _troveOwner) public override initializer  1faed4 
+contracts/trove.sol: function owner() public view override(Ownable, IOwnable) returns (address)  06db89 
+contracts/trove.sol: function mcr() public view override returns (uint256)  329e16 
+contracts/trove.sol: function unclaimedArbitrageReward() public view returns (uint256)  4dc136 
+contracts/trove.sol: function unclaimedCollateralRewardAndDebt() public view returns (uint256, uint256)  3a0ca9 
+contracts/trove.sol: function collateral() public view override returns (uint256)  ebb4e1 
+contracts/trove.sol: function debt() public view override returns (uint256)  51457e 
+contracts/trove.sol: function netDebt() public view override returns (uint256)  df4f5d 
+contracts/trove.sol: function collateralValue() public view override returns (uint256)  a7a033 
+contracts/trove.sol: function collateralization() public view override returns (uint256)  d34144 
+contracts/trove.sol: function _collateralization() private view returns (uint256)  944872 
+contracts/trove.sol: function transferOwnership(address _newOwner) public override(Ownable, IOwnable)  2d1443 
+contracts/trove.sol: function addOwner(address _newOwner) public override onlyTroveOwner  5f4d87 
+contracts/trove.sol: function removeOwner(address _ownerToRemove) public override onlyTroveOwner  c24d0e 
+contracts/trove.sol: function _initializeMainOwners(address _troveOwner, address _factory) private  ed40ec 
+contracts/trove.sol: function insertTrove(address _newNextTrove) private  92432b 
+contracts/trove.sol: function borrow( b57d2b 
+contracts/trove.sol: function borrowAndSwap( 450b2e 
+contracts/trove.sol: function repay(uint256 _amount, address _newNextTrove) public override  30664d 
+contracts/trove.sol: function getLiquidationRewards() internal  892908 
+contracts/trove.sol: function _borrow(uint256 _amount, address _newNextTrove) private returns (uint256 _feeAmount)  f3e3dc 
+contracts/trove.sol: function _swap( 1b2a5b 
+contracts/trove.sol: function _unclaimedCollateralRewardAndDebt(ILiquidationPool _pool, uint256 _currentLiqTokenRate) 5d2da5 
+contracts/trove.sol: function _updateCollateral() private returns (uint256)  b6758e 
+contracts/trove.sol: function increaseCollateral(uint256 _amount, address _newNextTrove) public override  562c02 
+contracts/trove.sol: function decreaseCollateral( a557fc 
+contracts/trove.sol: function redeem(address _recipient, address _newNextTrove) 96584f 
+contracts/trove.sol: function stakeBONQ(uint256 _amount) public override onlyTroveOwner  41405a 
+contracts/trove.sol: function withdrawBONQ(uint256 _amount) public override onlyTroveOwner  e6c7d7 
+contracts/trove.sol: function liquidate() public  cae9c4 
+contracts/trove.sol: function transferToken(address _token, address _recipient) public onlyTroveOwner  a80539 
+contracts/trove.sol: function setArbitrageParticipation(bool _state) public override onlyTroveOwner  a193f2 
+contracts/utils/BONQMath.sol: function min(uint256 a, uint256 b) internal pure returns (uint256)  d80694 
+contracts/utils/BONQMath.sol: function max(uint256 a, uint256 b) internal pure returns (uint256)  b6a5ee 
+contracts/utils/BONQMath.sol: function decMul(uint256 x, uint256 y) internal pure returns (uint256 decProd)  9815ef 
+contracts/utils/BONQMath.sol: function _decPow(uint256 _base, uint256 _minutes) internal pure returns (uint256)  975f56 
+contracts/utils/PoolAddress.sol: function getPoolKey( b11023 
+contracts/utils/PoolAddress.sol: function computeAddress(address factory, PoolKey memory key) internal pure returns (address pool)  f37bff 
+contracts/utils/TickMath.sol: function getSqrtRatioAtTick(int24 tick) internal pure returns (uint160 sqrtPriceX96)  f5032a 
+contracts/utils/TickMath.sol: function getTickAtSqrtRatio(uint160 sqrtPriceX96) internal pure returns (int24 tick)  1360f8 
+contracts/utils/linked-address-list.sol: function add( b16742 
+contracts/utils/linked-address-list.sol: function remove(List storage _list, address _element) internal returns (bool)  ba78ac 

@@ -1,0 +1,168 @@
+specVersion: 0.0.7
+description: Graph for watching Troves
+repository: https://github.com/bonq-ch/borrowing-protocol
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: TroveFactory
+    network: mumbai
+    source:
+      address: '0xf6063b2A386397C6fD5bb468523328bD363Cf614'
+      abi: TroveFactory
+      startBlock: 31363422
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Trove
+        - Token
+        - TroveRedemption
+        - Wallet
+        - TroveDebtHistory
+      abis:
+        - name: TroveFactory
+          file: >-
+            ./artifacts/contracts/original-trove-factory.sol/OriginalTroveFactory.json
+      eventHandlers:
+        - event: NewTrove(address,address,address)
+          handler: handleNewTrove
+        - event: TroveCollateralUpdate(address,address,uint256,uint256)
+          handler: handleTroveCollateralUpdate
+        - event: >-
+            TroveDebtUpdate(address,address,address,uint256,uint256,uint256,uint256)
+          handler: handleTroveDebtUpdate
+        - event: TroveLiquidated(address,address,uint256,address,uint256)
+          handler: handleTroveLiquidated
+        - event: TroveRemoved(address)
+          handler: handleTroveRemoved
+        - event: Redemption(address,uint256,uint256,uint256,uint256,uint256,address)
+          handler: handleRedemption
+      file: ./mappings/trove-factory.mapping.ts
+  - kind: ethereum/contract
+    name: StabilityPool
+    network: mumbai
+    source:
+      address: '0x497dF8a27Af3E8aa1cCF0062a0909Cf56F5ec8cE'
+      abi: StabilityPool
+      startBlock: 31363461
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - StabilityPoolDepositHistory
+        - StabilityPoolBONQRewardRedemption
+        - StabilityPoolRewardRedemption
+        - StabilityPoolGlobals
+        - Wallet
+      abis:
+        - name: StabilityPool
+          file: >-
+            ./artifacts/contracts/stability-pool-uniswap.sol/StabilityPoolUniswap.json
+      eventHandlers:
+        - event: BONQPerMinuteUpdated(uint256)
+          handler: handleBONQRewardsPerMinuteUpdate
+        - event: TotalBONQRewardsUpdated(uint256)
+          handler: handleTotalBONQRewardsUpdate
+        - event: BONQRewardRedeemed(address,uint256)
+          handler: handleBONQRewardRedemption
+        - event: CollateralRewardRedeemed(address,address,uint256,uint256)
+          handler: handleSPRewardRedemption
+        - event: Deposit(address,uint256)
+          handler: handleStabilityPoolDeposit
+        - event: Withdraw(address,uint256)
+          handler: handleStabilityPoolWithdrawal
+      file: ./mappings/stability-pool.mapping.ts
+  - kind: ethereum/contract
+    name: BONQStaking
+    network: mumbai
+    source:
+      address: '0x9de6B05958080391ADBBF2E3Fa1e15D814971801'
+      abi: BONQStaking
+      startBlock: 31363409
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Wallet
+        - Trove
+        - FeesTakenHistory
+        - BonqStakingGlobals
+        - BonqStakingDepositHistory
+        - BonqStakingRewardRedemption
+      abis:
+        - name: BONQStaking
+          file: ./artifacts/contracts/BONQ-staking.sol/BONQStaking.json
+      eventHandlers:
+        - event: StakeChanged(indexed address,uint256)
+          handler: handleStakeChanged
+        - event: FeeTaken(uint256,uint256,bool)
+          handler: handleFeeTaken
+        - event: RewardRedeemed(address,uint256,address)
+          handler: handleRewardRedeemed
+        - event: TotalBONQStakedUpdated(uint256)
+          handler: handleTotalBONQStakedUpdated
+      file: ./mappings/BONQ-staking.mapping.ts
+  - kind: ethereum/contract
+    name: TokenToPriceFeed
+    network: mumbai
+    source:
+      address: '0xDD618366A24982bfF3192c7f8855F6a51E4C16f8'
+      abi: TokenToPriceFeed
+      startBlock: 31363457
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Token
+      abis:
+        - name: TokenToPriceFeed
+          file: ./artifacts/contracts/token-to-price-feed.sol/TokenToPriceFeed.json
+      eventHandlers:
+        - event: NewTokenPriceFeed(address,address,string,string,uint256,uint256)
+          handler: handleNewTokenPriceFeed
+        - event: PriceUpdate(address,uint256,uint256)
+          handler: handlePriceUpdate
+      file: ./mappings/token-to-price-feed.mapping.ts
+  - kind: ethereum/contract
+    name: IPriceFeed
+    network: mumbai
+    source:
+      abi: IPriceFeed
+      startBlock: 31363457
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Token
+      abis:
+        - name: IPriceFeed
+          file: ./artifacts/contracts/interfaces/IPriceFeed.sol/IPriceFeed.json
+      eventHandlers:
+        - event: PriceUpdate(address,uint256,uint256)
+          handler: handlePriceUpdate
+      file: ./mappings/token-to-price-feed.mapping.ts
+  - kind: ethereum/contract
+    name: GenericTrove
+    network: mumbai
+    source:
+      abi: Trove
+      startBlock: 31363457
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Trove
+      abis:
+        - name: Trove
+          file: ./artifacts/contracts/trove.sol/Trove.json
+      eventHandlers:
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleTroveTransferOwnership
+      file: ./mappings/trove-factory.mapping.ts

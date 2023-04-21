@@ -1,0 +1,72 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hardhat
+  labels:
+    app: hardhat
+spec:
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: hardhat
+  template:
+    metadata:
+      labels:
+        app: hardhat
+        env: {env_hash}
+    spec:
+      automountServiceAccountToken: false
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - hardhat
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+      containers:
+      - image: {0.image}
+        imagePullPolicy: Always
+        name: hardhat
+        resources:
+          limits:
+            cpu: "1"
+            memory: 2G
+          requests:
+            cpu: 500m
+            memory: 1G
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8545
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8545
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          failureThreshold: 3
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hardhat
+  labels:
+    app: hardhat
+spec:
+  selector:
+    app: hardhat
+  ports:
+  - port: 8545
+    name: hardhat

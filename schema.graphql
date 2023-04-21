@@ -1,0 +1,144 @@
+type Trove @entity {
+  id: ID!
+  owner: Wallet!
+  token: Token!
+  collateral: BigInt
+  debt: BigInt
+  debtBaseRate: BigInt
+  debtUpdateHistory: [TroveDebtHistory!] @derivedFrom(field: "trove")
+  collateralization: BigInt
+  arbitrageParticipation: Boolean
+  isRemoved: Boolean
+  isLiquidated: Boolean
+  liquidationTimeStamp: BigInt,
+  liquidatedByStabilityPool: Boolean
+  priceAtLiquidation: BigInt
+}
+
+type TroveRedemption @entity {
+  id: ID!
+  collateralToken: Token!
+  stableCoinRedeemed: BigInt
+  collateralRedeemed: BigInt
+  stableCoinLeft: BigInt
+  startBaseRate: BigInt
+  finishBaseRate: BigInt
+  latestTroveRedeemed: Trove!
+  blockTimestamp: BigInt
+}
+
+type TroveLiquidation @entity {
+  id: ID!
+  trove: Trove!
+  collateral: BigInt
+  price: BigInt
+  liquidatedByStabilityPool: Boolean!
+}
+
+enum TroveDebtUpdateActions {
+  borrow
+  repay
+}
+
+type TroveDebtHistory @entity {
+  id: ID!
+  trove: Trove!
+  actor: Wallet!
+  amount: BigInt
+  debt: BigInt
+  action: TroveDebtUpdateActions
+  feePaid: BigInt
+}
+
+type Token @entity {
+  id: ID!
+  name: String
+  symbol: String
+  priceAverage: BigInt
+  pricePoint: BigInt
+  mcr: BigInt
+}
+
+type Wallet @entity {
+  id: ID!
+  bonqStake: BigInt
+  beurStake: BigInt
+  beurRewards: BigInt
+  bnqRewards: BigInt
+  depositsHistory: [StabilityPoolDepositHistory!]! @derivedFrom(field: "wallet")
+  bonqStakingDepositsHistory: [BonqStakingDepositHistory!]! @derivedFrom(field: "wallet")
+}
+
+type StabilityPoolDepositHistory @entity {
+  id: ID!
+  wallet: Wallet!
+  deposit: BigInt
+  blockTimestamp: BigInt
+}
+
+type StabilityPoolGlobals @entity {
+  id: ID!
+  bonqRewardPerMinute: BigInt
+  totalBonqRewards: BigInt
+  totalCollateralRedeemedValue: BigInt
+  collateralRewardsValue: BigInt
+  totalStake: BigInt
+  stakers: BigInt
+}
+
+type StabilityPool @entity {
+  id: ID!
+  bonqRewardPerMinute: BigInt
+  totalBonqRewards: BigInt
+  totalCollateralRedeemedValue: BigInt
+  collateralRewardsValue: BigInt
+  totalStake: BigInt
+  stakers: BigInt
+}
+
+type StabilityPoolBONQRewardRedemption @entity {
+  id: ID!
+  wallet: Wallet!
+  amount: BigInt
+  blockTimestamp: BigInt
+}
+
+type BonqStakingDepositHistory @entity {
+  id: ID!
+  wallet: Wallet!
+  deposit: BigInt
+  blockTimestamp: BigInt
+}
+
+type StabilityPoolRewardRedemption @entity {
+  id: ID!
+  token: Token!
+  wallet: Wallet!
+  amount: BigInt
+  price: BigInt
+  blockTimestamp: BigInt
+}
+
+type FeesTakenHistory @entity {
+  id: ID!
+  amount: BigInt
+  fStableCoin: BigInt
+  isRedemptionFee: Boolean!
+  blockTimestamp: BigInt
+}
+
+type BonqStakingRewardRedemption @entity {
+  id: ID!
+  wallet: Wallet!
+  amount: BigInt
+  trove: Trove!
+  blockTimestamp: BigInt
+}
+
+type BonqStakingGlobals @entity {
+  id: ID!
+  totalStake: BigInt
+  totalRewards: BigInt
+  totalHarvested: BigInt
+  stakers: BigInt
+}

@@ -1,0 +1,351 @@
+{
+  "address": "0x36B1ccA0B28c67DC0a57981bd79Cd4543bf39C98",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_factory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "BORROWING_RATE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DECIMAL_PRECISION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "LIQUIDATION_RESERVE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_BORROWING_RATE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_INT",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PERCENT",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PERCENT10",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PERCENT_05",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_trove",
+          "type": "address"
+        }
+      ],
+      "name": "approveTrove",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_unclaimedCollateral",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_unclaimedDebt",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimCollateralAndDebt",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "collateral",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "collateralToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "debt",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "factory",
+      "outputs": [
+        {
+          "internalType": "contract ITroveFactory",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "liqTokenRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "liquidate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_trove",
+          "type": "address"
+        }
+      ],
+      "name": "unapproveTrove",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xb7be5b2330ddc33d207ef0a241bf3490d1fdd0bab0dd881a4ba4e61940e358d5",
+  "receipt": {
+    "to": null,
+    "from": "0xC74BEd4d5b1110458d954e772272Bc05859b81bD",
+    "contractAddress": "0x36B1ccA0B28c67DC0a57981bd79Cd4543bf39C98",
+    "transactionIndex": 0,
+    "gasUsed": "889153",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000008000000000000000000000008000000000000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000080000000000000000000000000000000000000000004000000000000000000001000000000900000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000100000",
+    "blockHash": "0xa1ea418d8ea6e49e298c165e06b3d69f6554ec7e5d99eee5d848eadeed443f11",
+    "transactionHash": "0xb7be5b2330ddc33d207ef0a241bf3490d1fdd0bab0dd881a4ba4e61940e358d5",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 31363661,
+        "transactionHash": "0xb7be5b2330ddc33d207ef0a241bf3490d1fdd0bab0dd881a4ba4e61940e358d5",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000c74bed4d5b1110458d954e772272bc05859b81bd",
+          "0x0000000000000000000000003a22c8bc68e98b0faf40f349dd2b2890fae01484"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000005ec465f4af29310000000000000000000000000000000000000000000000002c1a188bce5efdf100000000000000000000000000000000000000000000022d8868ed28fdb1dfe00000000000000000000000000000000000000000000000002bbb5425d9afd4c000000000000000000000000000000000000000000000022d88c7b18ef2610911",
+        "logIndex": 0,
+        "blockHash": "0xa1ea418d8ea6e49e298c165e06b3d69f6554ec7e5d99eee5d848eadeed443f11"
+      }
+    ],
+    "blockNumber": 31363661,
+    "cumulativeGasUsed": "889153",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xf6063b2A386397C6fD5bb468523328bD363Cf614",
+    "0x3FCc3bc07891066A6e28006C53666aDc9d7C0702"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "dea2b32fd21416889096b7b2b54df7fd",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_factory\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"BORROWING_RATE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DECIMAL_PRECISION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"LIQUIDATION_RESERVE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_BORROWING_RATE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_INT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PERCENT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PERCENT10\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PERCENT_05\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_trove\",\"type\":\"address\"}],\"name\":\"approveTrove\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_unclaimedCollateral\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_unclaimedDebt\",\"type\":\"uint256\"}],\"name\":\"claimCollateralAndDebt\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"collateral\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"collateralToken\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"debt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"contract ITroveFactory\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"liqTokenRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"liquidate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_trove\",\"type\":\"address\"}],\"name\":\"unapproveTrove\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approveTrove(address)\":{\"details\":\"to approve trove, and let it liquidate itself further\",\"params\":{\"_trove\":\"address of the trove\"}},\"claimCollateralAndDebt(uint256,uint256)\":{\"details\":\"to transfer collateral and decrease collateral and debt in the pool\",\"params\":{\"_unclaimedCollateral\":\"unclaimed collateral calculated in the trove\",\"_unclaimedDebt\":\"the unclaimed debt calculated in the trove\"}},\"liquidate()\":{\"details\":\"liquidates the trove that called it\"},\"unapproveTrove(address)\":{\"details\":\"to unapprove trove, forbid it to liquidate itself further\",\"params\":{\"_trove\":\"address of the trove\"}}},\"title\":\"is used in case when stabilityPool is empty or not enough to liquidate trove\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/community-liquidation-pool.sol\":\"CommunityLiquidationPool\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/IAccessControl.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (access/IAccessControl.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev External interface of AccessControl declared to support ERC165 detection.\\n */\\ninterface IAccessControl {\\n    /**\\n     * @dev Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole`\\n     *\\n     * `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite\\n     * {RoleAdminChanged} not being emitted signaling this.\\n     *\\n     * _Available since v3.1._\\n     */\\n    event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole);\\n\\n    /**\\n     * @dev Emitted when `account` is granted `role`.\\n     *\\n     * `sender` is the account that originated the contract call, an admin role\\n     * bearer except when using {AccessControl-_setupRole}.\\n     */\\n    event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender);\\n\\n    /**\\n     * @dev Emitted when `account` is revoked `role`.\\n     *\\n     * `sender` is the account that originated the contract call:\\n     *   - if using `revokeRole`, it is the admin role bearer\\n     *   - if using `renounceRole`, it is the role bearer (i.e. `account`)\\n     */\\n    event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender);\\n\\n    /**\\n     * @dev Returns `true` if `account` has been granted `role`.\\n     */\\n    function hasRole(bytes32 role, address account) external view returns (bool);\\n\\n    /**\\n     * @dev Returns the admin role that controls `role`. See {grantRole} and\\n     * {revokeRole}.\\n     *\\n     * To change a role's admin, use {AccessControl-_setRoleAdmin}.\\n     */\\n    function getRoleAdmin(bytes32 role) external view returns (bytes32);\\n\\n    /**\\n     * @dev Grants `role` to `account`.\\n     *\\n     * If `account` had not been already granted `role`, emits a {RoleGranted}\\n     * event.\\n     *\\n     * Requirements:\\n     *\\n     * - the caller must have ``role``'s admin role.\\n     */\\n    function grantRole(bytes32 role, address account) external;\\n\\n    /**\\n     * @dev Revokes `role` from `account`.\\n     *\\n     * If `account` had been granted `role`, emits a {RoleRevoked} event.\\n     *\\n     * Requirements:\\n     *\\n     * - the caller must have ``role``'s admin role.\\n     */\\n    function revokeRole(bytes32 role, address account) external;\\n\\n    /**\\n     * @dev Revokes `role` from the calling account.\\n     *\\n     * Roles are often managed via {grantRole} and {revokeRole}: this function's\\n     * purpose is to provide a mechanism for accounts to lose their privileges\\n     * if they are compromised (such as when a trusted device is misplaced).\\n     *\\n     * If the calling account had been granted `role`, emits a {RoleRevoked}\\n     * event.\\n     *\\n     * Requirements:\\n     *\\n     * - the caller must be `account`.\\n     */\\n    function renounceRole(bytes32 role, address account) external;\\n}\\n\",\"keccak256\":\"0x59ce320a585d7e1f163cd70390a0ef2ff9cec832e2aa544293a00692465a7a57\",\"license\":\"MIT\"},\"@openzeppelin/contracts/access/IAccessControlEnumerable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (access/IAccessControlEnumerable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"./IAccessControl.sol\\\";\\n\\n/**\\n * @dev External interface of AccessControlEnumerable declared to support ERC165 detection.\\n */\\ninterface IAccessControlEnumerable is IAccessControl {\\n    /**\\n     * @dev Returns one of the accounts that have `role`. `index` must be a\\n     * value between 0 and {getRoleMemberCount}, non-inclusive.\\n     *\\n     * Role bearers are not sorted in any particular way, and their ordering may\\n     * change at any point.\\n     *\\n     * WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure\\n     * you perform all queries on the same block. See the following\\n     * https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post]\\n     * for more information.\\n     */\\n    function getRoleMember(bytes32 role, uint256 index) external view returns (address);\\n\\n    /**\\n     * @dev Returns the number of accounts that have `role`. Can be used\\n     * together with {getRoleMember} to enumerate all bearers of a role.\\n     */\\n    function getRoleMemberCount(bytes32 role) external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xba4459ab871dfa300f5212c6c30178b63898c03533a1ede28436f11546626676\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.5.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `from` to `to` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(\\n        address from,\\n        address to,\\n        uint256 amount\\n    ) external returns (bool);\\n\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n}\\n\",\"keccak256\":\"0xbbc8ac883ac3c0078ce5ad3e288fbb3ffcc8a30c3a98c0fda0114d64fc44fca2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (token/ERC20/utils/SafeERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../IERC20.sol\\\";\\nimport \\\"../../../utils/Address.sol\\\";\\n\\n/**\\n * @title SafeERC20\\n * @dev Wrappers around ERC20 operations that throw on failure (when the token\\n * contract returns false). Tokens that return no value (and instead revert or\\n * throw on failure) are also supported, non-reverting calls are assumed to be\\n * successful.\\n * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,\\n * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\\n */\\nlibrary SafeERC20 {\\n    using Address for address;\\n\\n    function safeTransfer(\\n        IERC20 token,\\n        address to,\\n        uint256 value\\n    ) internal {\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));\\n    }\\n\\n    function safeTransferFrom(\\n        IERC20 token,\\n        address from,\\n        address to,\\n        uint256 value\\n    ) internal {\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));\\n    }\\n\\n    /**\\n     * @dev Deprecated. This function has issues similar to the ones found in\\n     * {IERC20-approve}, and its usage is discouraged.\\n     *\\n     * Whenever possible, use {safeIncreaseAllowance} and\\n     * {safeDecreaseAllowance} instead.\\n     */\\n    function safeApprove(\\n        IERC20 token,\\n        address spender,\\n        uint256 value\\n    ) internal {\\n        // safeApprove should only be called when setting an initial allowance,\\n        // or when resetting it to zero. To increase and decrease it, use\\n        // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'\\n        require(\\n            (value == 0) || (token.allowance(address(this), spender) == 0),\\n            \\\"SafeERC20: approve from non-zero to non-zero allowance\\\"\\n        );\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));\\n    }\\n\\n    function safeIncreaseAllowance(\\n        IERC20 token,\\n        address spender,\\n        uint256 value\\n    ) internal {\\n        uint256 newAllowance = token.allowance(address(this), spender) + value;\\n        _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\\n    }\\n\\n    function safeDecreaseAllowance(\\n        IERC20 token,\\n        address spender,\\n        uint256 value\\n    ) internal {\\n        unchecked {\\n            uint256 oldAllowance = token.allowance(address(this), spender);\\n            require(oldAllowance >= value, \\\"SafeERC20: decreased allowance below zero\\\");\\n            uint256 newAllowance = oldAllowance - value;\\n            _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\\n        }\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity high-level call (i.e. a regular function call to a contract), relaxing the requirement\\n     * on the return value: the return value is optional (but if data is returned, it must not be false).\\n     * @param token The token targeted by the call.\\n     * @param data The call data (encoded using abi.encode or one of its variants).\\n     */\\n    function _callOptionalReturn(IERC20 token, bytes memory data) private {\\n        // We need to perform a low level call here, to bypass Solidity's return data size checking mechanism, since\\n        // we're implementing it ourselves. We use {Address.functionCall} to perform this call, which verifies that\\n        // the target address contains contract code and also asserts for success in the low-level call.\\n\\n        bytes memory returndata = address(token).functionCall(data, \\\"SafeERC20: low-level call failed\\\");\\n        if (returndata.length > 0) {\\n            // Return data is optional\\n            require(abi.decode(returndata, (bool)), \\\"SafeERC20: ERC20 operation did not succeed\\\");\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xc3d946432c0ddbb1f846a0d3985be71299df331b91d06732152117f62f0be2b5\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Address.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.5.0) (utils/Address.sol)\\n\\npragma solidity ^0.8.1;\\n\\n/**\\n * @dev Collection of functions related to the address type\\n */\\nlibrary Address {\\n    /**\\n     * @dev Returns true if `account` is a contract.\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * It is unsafe to assume that an address for which this function returns\\n     * false is an externally-owned account (EOA) and not a contract.\\n     *\\n     * Among others, `isContract` will return false for the following\\n     * types of addresses:\\n     *\\n     *  - an externally-owned account\\n     *  - a contract in construction\\n     *  - an address where a contract will be created\\n     *  - an address where a contract lived, but was destroyed\\n     * ====\\n     *\\n     * [IMPORTANT]\\n     * ====\\n     * You shouldn't rely on `isContract` to protect against flash loan attacks!\\n     *\\n     * Preventing calls from contracts is highly discouraged. It breaks composability, breaks support for smart wallets\\n     * like Gnosis Safe, and does not provide security since it can be circumvented by calling from a contract\\n     * constructor.\\n     * ====\\n     */\\n    function isContract(address account) internal view returns (bool) {\\n        // This method relies on extcodesize/address.code.length, which returns 0\\n        // for contracts in construction, since the code is only stored at the end\\n        // of the constructor execution.\\n\\n        return account.code.length > 0;\\n    }\\n\\n    /**\\n     * @dev Replacement for Solidity's `transfer`: sends `amount` wei to\\n     * `recipient`, forwarding all available gas and reverting on errors.\\n     *\\n     * https://eips.ethereum.org/EIPS/eip-1884[EIP1884] increases the gas cost\\n     * of certain opcodes, possibly making contracts go over the 2300 gas limit\\n     * imposed by `transfer`, making them unable to receive funds via\\n     * `transfer`. {sendValue} removes this limitation.\\n     *\\n     * https://diligence.consensys.net/posts/2019/09/stop-using-soliditys-transfer-now/[Learn more].\\n     *\\n     * IMPORTANT: because control is transferred to `recipient`, care must be\\n     * taken to not create reentrancy vulnerabilities. Consider using\\n     * {ReentrancyGuard} or the\\n     * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].\\n     */\\n    function sendValue(address payable recipient, uint256 amount) internal {\\n        require(address(this).balance >= amount, \\\"Address: insufficient balance\\\");\\n\\n        (bool success, ) = recipient.call{value: amount}(\\\"\\\");\\n        require(success, \\\"Address: unable to send value, recipient may have reverted\\\");\\n    }\\n\\n    /**\\n     * @dev Performs a Solidity function call using a low level `call`. A\\n     * plain `call` is an unsafe replacement for a function call: use this\\n     * function instead.\\n     *\\n     * If `target` reverts with a revert reason, it is bubbled up by this\\n     * function (like regular Solidity function calls).\\n     *\\n     * Returns the raw returned data. To convert to the expected return value,\\n     * use https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=abi.decode#abi-encoding-and-decoding-functions[`abi.decode`].\\n     *\\n     * Requirements:\\n     *\\n     * - `target` must be a contract.\\n     * - calling `target` with `data` must not revert.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionCall(target, data, \\\"Address: low-level call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`], but with\\n     * `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, 0, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but also transferring `value` wei to `target`.\\n     *\\n     * Requirements:\\n     *\\n     * - the calling contract must have an ETH balance of at least `value`.\\n     * - the called Solidity function must be `payable`.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value\\n    ) internal returns (bytes memory) {\\n        return functionCallWithValue(target, data, value, \\\"Address: low-level call with value failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but\\n     * with `errorMessage` as a fallback revert reason when `target` reverts.\\n     *\\n     * _Available since v3.1._\\n     */\\n    function functionCallWithValue(\\n        address target,\\n        bytes memory data,\\n        uint256 value,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        require(address(this).balance >= value, \\\"Address: insufficient balance for call\\\");\\n        require(isContract(target), \\\"Address: call to non-contract\\\");\\n\\n        (bool success, bytes memory returndata) = target.call{value: value}(data);\\n        return verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {\\n        return functionStaticCall(target, data, \\\"Address: low-level static call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a static call.\\n     *\\n     * _Available since v3.3._\\n     */\\n    function functionStaticCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal view returns (bytes memory) {\\n        require(isContract(target), \\\"Address: static call to non-contract\\\");\\n\\n        (bool success, bytes memory returndata) = target.staticcall(data);\\n        return verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-}[`functionCall`],\\n     * but performing a delegate call.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function functionDelegateCall(address target, bytes memory data) internal returns (bytes memory) {\\n        return functionDelegateCall(target, data, \\\"Address: low-level delegate call failed\\\");\\n    }\\n\\n    /**\\n     * @dev Same as {xref-Address-functionCall-address-bytes-string-}[`functionCall`],\\n     * but performing a delegate call.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function functionDelegateCall(\\n        address target,\\n        bytes memory data,\\n        string memory errorMessage\\n    ) internal returns (bytes memory) {\\n        require(isContract(target), \\\"Address: delegate call to non-contract\\\");\\n\\n        (bool success, bytes memory returndata) = target.delegatecall(data);\\n        return verifyCallResult(success, returndata, errorMessage);\\n    }\\n\\n    /**\\n     * @dev Tool to verifies that a low level call was successful, and revert if it wasn't, either by bubbling the\\n     * revert reason using the provided one.\\n     *\\n     * _Available since v4.3._\\n     */\\n    function verifyCallResult(\\n        bool success,\\n        bytes memory returndata,\\n        string memory errorMessage\\n    ) internal pure returns (bytes memory) {\\n        if (success) {\\n            return returndata;\\n        } else {\\n            // Look for revert reason and bubble it up if present\\n            if (returndata.length > 0) {\\n                // The easiest way to bubble the revert reason is using memory via assembly\\n\\n                assembly {\\n                    let returndata_size := mload(returndata)\\n                    revert(add(32, returndata), returndata_size)\\n                }\\n            } else {\\n                revert(errorMessage);\\n            }\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x2ccf9d2313a313d41a791505f2b5abfdc62191b5d4334f7f7a82691c088a1c87\",\"license\":\"MIT\"},\"contracts/community-liquidation-pool.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\n// import \\\"hardhat/console.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\\\";\\nimport \\\"./interfaces/ILiquidationPool.sol\\\";\\nimport \\\"./interfaces/ITroveFactory.sol\\\";\\nimport \\\"./interfaces/ITrove.sol\\\";\\nimport \\\"./interfaces/IMintableToken.sol\\\";\\n\\n/// @title is used in case when stabilityPool is empty or not enough to liquidate trove\\ncontract CommunityLiquidationPool is ILiquidationPool, Constants {\\n  using SafeERC20 for IERC20;\\n\\n  ITroveFactory public immutable factory;\\n  uint256 public override liqTokenRate = DECIMAL_PRECISION;\\n  uint256 public override collateral;\\n  uint256 public override debt;\\n  IERC20 public immutable collateralToken;\\n\\n  // solhint-disable-next-line func-visibility\\n  constructor(address _factory, address _token) {\\n    require(_factory != address(0x0) && _token != address(0x0), \\\"65151f no zero addresses\\\");\\n    factory = ITroveFactory(_factory);\\n    collateralToken = IERC20(_token);\\n  }\\n\\n  /// @dev to approve trove, and let it liquidate itself further\\n  /// @param _trove address of the trove\\n  function approveTrove(address _trove) public override {\\n    require(msg.sender == address(factory), \\\"1b023 only the factory is allowed to call\\\");\\n    collateralToken.approve(_trove, MAX_INT);\\n  }\\n\\n  /// @dev to unapprove trove, forbid it to liquidate itself further\\n  /// @param _trove address of the trove\\n  function unapproveTrove(address _trove) public override {\\n    require(msg.sender == address(factory), \\\"cfec3 only the factory is allowed to call\\\");\\n    collateralToken.approve(_trove, 0);\\n  }\\n\\n  /// @dev to transfer collateral and decrease collateral and debt in the pool\\n  /// @param _unclaimedCollateral unclaimed collateral calculated in the trove\\n  /// @param _unclaimedDebt the unclaimed debt calculated in the trove\\n  function claimCollateralAndDebt(uint256 _unclaimedCollateral, uint256 _unclaimedDebt) external override {\\n    IERC20 tokenCache = collateralToken;\\n    require(factory.containsTrove(address(tokenCache), msg.sender), \\\"c0e31 must be called from a valid trove\\\");\\n    collateral -= _unclaimedCollateral;\\n    debt -= _unclaimedDebt;\\n\\n    tokenCache.safeTransfer(msg.sender, _unclaimedCollateral);\\n  }\\n\\n  /// @dev liquidates the trove that called it\\n  function liquidate() external override {\\n    ITroveFactory factoryCache = factory;\\n    IERC20 tokenCache = collateralToken;\\n    require(factoryCache.troveCount(address(tokenCache)) > 1, \\\"c0e35 the last trove can not be liquidated\\\");\\n    require(factoryCache.containsTrove(address(tokenCache), msg.sender), \\\"c0e35 must be called from a valid trove\\\");\\n    ITrove trove = ITrove(msg.sender);\\n    uint256 troveCollateral = trove.recordedCollateral();\\n    collateral += troveCollateral;\\n    debt += trove.debt();\\n    uint256 factoryCollateral = factoryCache.totalCollateral(address(tokenCache));\\n    liqTokenRate += (troveCollateral * liqTokenRate) / (factoryCollateral - troveCollateral); // = (FactoryCollateral / prevLiqCollateral)\\n\\n    tokenCache.safeTransferFrom(msg.sender, address(this), troveCollateral);\\n\\n    factoryCache.emitLiquidationEvent(address(tokenCache), msg.sender, address(0), troveCollateral);\\n  }\\n}\\n\",\"keccak256\":\"0xdc65835a8146d4bdec594549904cc3edb902b28df7e1525bb5dca5ab6124236e\",\"license\":\"MIT\"},\"contracts/interfaces/IFeeRecipient.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\ninterface IFeeRecipient {\\n  function baseRate() external view returns (uint256);\\n\\n  function getBorrowingFee(uint256 _amount) external view returns (uint256);\\n\\n  function calcDecayedBaseRate(uint256 _currentBaseRate) external view returns (uint256);\\n\\n  /**\\n   * @dev is called to make the FeeRecipient contract transfer the fees to itself. It will use transferFrom to get the\\n   * fees from the msg.sender\\n   * @param _amount the amount in Wei of fees to transfer\\n   */\\n  function takeFees(uint256 _amount) external returns (bool);\\n\\n  function increaseBaseRate(uint256 _increase) external returns (uint256);\\n}\\n\",\"keccak256\":\"0x956def5f462011bcfa336dc961b70711817e27682371d5c0752099ecd03374cc\",\"license\":\"MIT\"},\"contracts/interfaces/ILiquidationPool.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"../utils/constants.sol\\\";\\n\\ninterface ILiquidationPool {\\n  function collateral() external view returns (uint256);\\n\\n  function debt() external view returns (uint256);\\n\\n  function liqTokenRate() external view returns (uint256);\\n\\n  function claimCollateralAndDebt(uint256 _unclaimedCollateral, uint256 _unclaimedDebt) external;\\n\\n  function approveTrove(address _trove) external;\\n\\n  function unapproveTrove(address _trove) external;\\n\\n  function liquidate() external;\\n}\\n\",\"keccak256\":\"0x7e7c6bfd1345b762f1373273b6fc007cbda9b1c16e8466bf98110ad59f83906f\",\"license\":\"MIT\"},\"contracts/interfaces/IMintableToken.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"./IOwnable.sol\\\";\\n\\ninterface IMintableToken is IERC20, IOwnable {\\n  function mint(address recipient, uint256 amount) external;\\n\\n  function burn(uint256 amount) external;\\n\\n  function name() external view returns (string memory);\\n\\n  function symbol() external view returns (string memory);\\n\\n  function approve(address spender, uint256 amount) external override returns (bool);\\n}\\n\",\"keccak256\":\"0xe1e7e2fa917ba94b2961fd382bd396113396e6a2babc3e84a91fe0b582ca2e2b\",\"license\":\"MIT\"},\"contracts/interfaces/IMintableTokenOwner.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"./IOwnable.sol\\\";\\nimport \\\"./IMintableToken.sol\\\";\\n\\ninterface IMintableTokenOwner is IOwnable {\\n  function token() external view returns (IMintableToken);\\n\\n  function mint(address _recipient, uint256 _amount) external;\\n\\n  function transferTokenOwnership(address _newOwner) external;\\n\\n  function addMinter(address _newMinter) external;\\n\\n  function revokeMinter(address _minter) external;\\n}\\n\",\"keccak256\":\"0xa23ed4bc24f67535bdf6b9fda45af99202f4b37b137d68111205efb04022f476\",\"license\":\"MIT\"},\"contracts/interfaces/IOwnable.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\ninterface IOwnable {\\n  /**\\n   * @dev Returns the address of the current owner.\\n   */\\n  function owner() external view returns (address);\\n\\n  /**\\n   * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n   * Can only be called by the current owner.\\n   */\\n  function transferOwnership(address newOwner) external;\\n}\\n\",\"keccak256\":\"0x955ead6c2a923863ba607a752e4a9924ab4fe4d07dd6cf09e5f68d0bece11049\",\"license\":\"MIT\"},\"contracts/interfaces/IServiceFeeGenerator.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"./ITrove.sol\\\";\\nimport \\\"./IFeeRecipient.sol\\\";\\n\\ninterface IServiceFeeGenerator {\\n  function trove() external view returns (ITrove);\\n\\n  function feeRecipient() external view returns (IFeeRecipient);\\n\\n  function feeAmount() external view returns (uint256);\\n\\n  function feeInterval() external view returns (uint256);\\n\\n  function lastPayTime() external view returns (uint256);\\n\\n  function isPaid() external view returns (bool);\\n\\n  function initialized() external view returns (bool);\\n\\n  function initialize(\\n    ITrove _trove,\\n    uint256 _feeAmount,\\n    uint256 _feeInterval\\n  ) external;\\n\\n  /**\\n   * @dev is called to check if the interval passed and pay fee in that case\\n   * takes fees as debt from the trove set\\n   */\\n  function withdrawFee(address _newNextTrove) external;\\n\\n  event Activated(address indexed activator, address indexed trove, uint256 feeAmount, uint256 feeInterval);\\n  event FeeCollected(uint256 indexed periodStart, uint256 indexed periodEnd);\\n  event Deactivated(address indexed deactivator, uint256 indexed timestamp);\\n}\\n\",\"keccak256\":\"0x6e3348710605ff00634eb475cd5d49aa34072ed0911ffc1731e1961a326b1d79\",\"license\":\"MIT\"},\"contracts/interfaces/IStabilityPoolBase.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"../utils/constants.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"./ITroveFactory.sol\\\";\\nimport \\\"./IMintableToken.sol\\\";\\n\\ninterface IStabilityPoolBase {\\n  function factory() external view returns (ITroveFactory);\\n\\n  function stableCoin() external view returns (IMintableToken);\\n\\n  function bonqToken() external view returns (IERC20);\\n\\n  function totalDeposit() external view returns (uint256);\\n\\n  function withdraw(uint256 _amount) external;\\n\\n  function deposit(uint256 _amount) external;\\n\\n  function redeemReward() external;\\n\\n  function liquidate() external;\\n\\n  function setBONQPerMinute(uint256 _bonqPerMinute) external;\\n\\n  function setBONQAmountForRewards() external;\\n\\n  function getDepositorBONQGain(address _depositor) external view returns (uint256);\\n\\n  function getWithdrawableDeposit(address staker) external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xf604d75783438cc84d31e72e6becbf359d4233e1d57bacf399767563507750ba\",\"license\":\"MIT\"},\"contracts/interfaces/ITokenPriceFeed.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"./IOwnable.sol\\\";\\n\\ninterface ITokenPriceFeed is IOwnable {\\n  struct TokenInfo {\\n    address priceFeed;\\n    uint256 mcr;\\n    uint256 mrf; // Maximum Redemption Fee\\n  }\\n\\n  function tokenPriceFeed(address) external view returns (address);\\n\\n  function tokenPrice(address _token) external view returns (uint256);\\n\\n  function mcr(address _token) external view returns (uint256);\\n\\n  function mrf(address _token) external view returns (uint256);\\n\\n  function setTokenPriceFeed(\\n    address _token,\\n    address _priceFeed,\\n    uint256 _mcr,\\n    uint256 _maxRedemptionFeeBasisPoints\\n  ) external;\\n\\n  function emitPriceUpdate(\\n    address _token,\\n    uint256 _priceAverage,\\n    uint256 _pricePoint\\n  ) external;\\n\\n  event NewTokenPriceFeed(address _token, address _priceFeed, string _name, string _symbol, uint256 _mcr, uint256 _mrf);\\n  event PriceUpdate(address token, uint256 priceAverage, uint256 pricePoint);\\n}\\n\",\"keccak256\":\"0x1464b339e10e5bcdff774c69d9092696bc4e64c2a1fcbe66120fcdcd72d17a2d\",\"license\":\"MIT\"},\"contracts/interfaces/ITrove.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"./IOwnable.sol\\\";\\nimport \\\"./ITroveFactory.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"@openzeppelin/contracts/access/IAccessControlEnumerable.sol\\\";\\n\\ninterface ITrove is IOwnable, IAccessControlEnumerable {\\n  function factory() external view returns (ITroveFactory);\\n\\n  function token() external view returns (IERC20);\\n\\n  // solhint-disable-next-line func-name-mixedcase\\n  function OWNER_ROLE() external view returns (bytes32);\\n\\n  function addOwner(address _newOwner) external;\\n\\n  function removeOwner(address _ownerToRemove) external;\\n\\n  // solhint-disable-next-line func-name-mixedcase\\n  function TOKEN_PRECISION() external view returns (uint256);\\n\\n  function mcr() external view returns (uint256);\\n\\n  function collateralization() external view returns (uint256);\\n\\n  function collateralValue() external view returns (uint256);\\n\\n  function collateral() external view returns (uint256);\\n\\n  function recordedCollateral() external view returns (uint256);\\n\\n  function debt() external view returns (uint256);\\n\\n  function liquidationReserve() external view returns (uint256);\\n\\n  function netDebt() external view returns (uint256);\\n\\n  function bonqStake() external view returns (uint256);\\n\\n  //  function rewardRatioSnapshot() external view returns (uint256);\\n\\n  function initialize(\\n    //    address _factory,\\n    address _token,\\n    address _troveOwner\\n  ) external;\\n\\n  function increaseCollateral(uint256 _amount, address _newNextTrove) external;\\n\\n  function decreaseCollateral(\\n    address _recipient,\\n    uint256 _amount,\\n    address _newNextTrove\\n  ) external;\\n\\n  function unstakeBONQ(uint256 _amount) external;\\n\\n  function borrow(\\n    address _recipient,\\n    uint256 _amount,\\n    address _newNextTrove\\n  ) external;\\n\\n  function repay(uint256 _amount, address _newNextTrove) external;\\n\\n  function redeem(address _recipient, address _newNextTrove) external returns (uint256 _stableAmount, uint256 _collateralRecieved);\\n\\n  function setArbitrageParticipation(bool _state) external;\\n\\n  function liquidate() external;\\n}\\n\",\"keccak256\":\"0x9906f3efa20161df4cccd50c931947c9daa7f69b6cd0b442f241db7b311ed47d\",\"license\":\"MIT\"},\"contracts/interfaces/ITroveFactory.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"./IOwnable.sol\\\";\\nimport \\\"./ITokenPriceFeed.sol\\\";\\nimport \\\"./IMintableToken.sol\\\";\\nimport \\\"./IMintableTokenOwner.sol\\\";\\nimport \\\"./IFeeRecipient.sol\\\";\\nimport \\\"./ILiquidationPool.sol\\\";\\nimport \\\"./IStabilityPoolBase.sol\\\";\\nimport \\\"./ITrove.sol\\\";\\nimport \\\"./IServiceFeeGenerator.sol\\\";\\n\\ninterface ITroveFactory {\\n  /* view */\\n  function lastTrove(address _trove) external view returns (address);\\n\\n  function firstTrove(address _trove) external view returns (address);\\n\\n  function nextTrove(address _token, address _trove) external view returns (address);\\n\\n  function prevTrove(address _token, address _trove) external view returns (address);\\n\\n  function containsTrove(address _token, address _trove) external view returns (bool);\\n\\n  function stableCoin() external view returns (IMintableToken);\\n\\n  function bonqToken() external view returns (IERC20);\\n\\n  function tokenOwner() external view returns (IMintableTokenOwner);\\n\\n  function tokenToPriceFeed() external view returns (ITokenPriceFeed);\\n\\n  function feeRecipient() external view returns (IFeeRecipient);\\n\\n  function troveCount(address _token) external view returns (uint256);\\n\\n  function totalDebt() external view returns (uint256);\\n\\n  function maxTroveBONQStake() external view returns (uint256);\\n\\n  function getReducedFeeAndRefundAmount(uint256 _fee, address _trove) external view returns (uint256 _reducedFee, uint256 _refundAmount);\\n\\n  function totalCollateral(address _token) external view returns (uint256);\\n\\n  function totalDebtForToken(address _token) external view returns (uint256);\\n\\n  function liquidationPool(address _token) external view returns (ILiquidationPool);\\n\\n  function stabilityPool() external view returns (IStabilityPoolBase);\\n\\n  function arbitragePool() external view returns (address);\\n\\n  function arbitrageShareRatio() external view returns (uint256);\\n\\n  function getRedemptionFeeRatio(address _trove) external view returns (uint256);\\n\\n  function getRedemptionFee(uint256 _feeRatio, uint256 _amount) external pure returns (uint256);\\n\\n  function getBorrowingFee(uint256 _amount) external view returns (uint256);\\n\\n  /* state changes*/\\n  function createTrove(address _token) external returns (ITrove trove);\\n\\n  function createTroveAndBorrow(\\n    address _token,\\n    uint256 _collateralAmount,\\n    address _recipient,\\n    uint256 _borrowAmount,\\n    address _nextTrove\\n  ) external;\\n\\n  function removeTrove(address _token, address _trove) external;\\n\\n  function insertTrove(address _trove, address _newNextTrove) external;\\n\\n  function createNewServiceFee(\\n    ITrove _trove,\\n    uint256 _feeAmount,\\n    uint256 _feeInterval\\n  ) external returns (IServiceFeeGenerator newServiceFee);\\n\\n  function updateTotalCollateral(\\n    address _token,\\n    uint256 _amount,\\n    bool _increase\\n  ) external;\\n\\n  function updateTotalDebt(uint256 _amount, bool _borrow) external;\\n\\n  function setStabilityPool(address _stabilityPool) external;\\n\\n  function setArbitragePool(address _arbitragePool) external;\\n\\n  // solhint-disable-next-line var-name-mixedcase\\n  function setWETH(address _WETH, address _liquidationPool) external;\\n\\n  function setMaxTroveBONQStake(uint256 _newAmount) external;\\n\\n  function increaseCollateralNative(address _trove, address _newNextTrove) external payable;\\n\\n  /* utils */\\n  function emitLiquidationEvent(\\n    address _token,\\n    address _trove,\\n    address stabilityPoolLiquidation,\\n    uint256 collateral\\n  ) external;\\n\\n  function emitTroveCollateralUpdate(\\n    address _token,\\n    uint256 _newAmount,\\n    uint256 _newCollateralization\\n  ) external;\\n\\n  function emitTroveDebtUpdate(\\n    address _token,\\n    uint256 _newAmount,\\n    uint256 _newCollateralization,\\n    uint256 _feePaid\\n  ) external;\\n}\\n\",\"keccak256\":\"0x6730f1dcdb543d5d75b4276a5c4fe825afb5595a62ed1a2801b892d7d0ed3d97\",\"license\":\"MIT\"},\"contracts/utils/constants.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\ncontract Constants {\\n  uint256 public constant DECIMAL_PRECISION = 1e18;\\n  uint256 public constant LIQUIDATION_RESERVE = 1e18;\\n  uint256 public constant MAX_INT = 2**256 - 1;\\n\\n  uint256 public constant PERCENT = (DECIMAL_PRECISION * 1) / 100; // 1%\\n  uint256 public constant PERCENT10 = PERCENT * 10; // 10%\\n  uint256 public constant PERCENT_05 = PERCENT / 2; // 0.5%\\n  uint256 public constant BORROWING_RATE = PERCENT_05;\\n  uint256 public constant MAX_BORROWING_RATE = (DECIMAL_PRECISION * 5) / 100; // 5%\\n}\\n\",\"keccak256\":\"0x6a665a01a9a7f729c66450e6b996c07ac47009851acacc6fcb11eb974ef20b5c\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60c0604052670de0b6b3a764000060005534801561001c57600080fd5b5060405161101a38038061101a83398101604081905261003b916100de565b6001600160a01b0382161580159061005b57506001600160a01b03811615155b6100ab5760405162461bcd60e51b815260206004820152601860248201527f363531353166206e6f207a65726f206164647265737365730000000000000000604482015260640160405180910390fd5b6001600160a01b039182166080521660a052610111565b80516001600160a01b03811681146100d957600080fd5b919050565b600080604083850312156100f157600080fd5b6100fa836100c2565b9150610108602084016100c2565b90509250929050565b60805160a051610eac61016e6000396000818161019a0152818161022e015281816106df0152818161082f01526108c90152600081816101e10152818161025f015281816106390152818161078a01526108f90152610eac6000f3fe608060405234801561001057600080fd5b506004361061010b5760003560e01c8063a20baee6116100a2578063b2016bd411610071578063b2016bd414610195578063b85a8b20146101d4578063c45a0155146101dc578063d8dfeb4514610203578063fe373cb81461020c57600080fd5b8063a20baee614610176578063abdc554114610185578063aceb2d0414610152578063ad09014d1461018d57600080fd5b8063517ef1d7116100de578063517ef1d71461015257806366501ae51461015a5780636a31b4ca14610163578063923c1eec1461017657600080fd5b8063098d3228146101105780630dca59c11461012c57806328a07025146101355780633f877ca41461013f575b600080fd5b61011960001981565b6040519081526020015b60405180910390f35b61011960025481565b61013d61021f565b005b61013d61014d366004610d02565b61062e565b610119610751565b61011960005481565b61013d610171366004610d02565b61077f565b610119670de0b6b3a764000081565b61011961085e565b610119610873565b6101bc7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b039091168152602001610123565b61011961089d565b6101bc7f000000000000000000000000000000000000000000000000000000000000000081565b61011960015481565b61013d61021a366004610d2b565b6108b2565b6040516304b91f7360e51b81527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0381811660048401527f000000000000000000000000000000000000000000000000000000000000000092600191841690639723ee6090602401602060405180830381865afa1580156102ab573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102cf9190610d4d565b116103345760405162461bcd60e51b815260206004820152602a60248201527f633065333520746865206c6173742074726f76652063616e206e6f74206265206044820152691b1a5c5d5a59185d195960b21b60648201526084015b60405180910390fd5b6040516359eaf06760e11b81526001600160a01b03828116600483015233602483015283169063b3d5e0ce90604401602060405180830381865afa158015610380573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103a49190610d66565b6104005760405162461bcd60e51b815260206004820152602760248201527f6330653335206d7573742062652063616c6c65642066726f6d20612076616c69604482015266642074726f766560c81b606482015260840161032b565b60003390506000816001600160a01b031663673a1ac26040518163ffffffff1660e01b8152600401602060405180830381865afa158015610445573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104699190610d4d565b9050806001600082825461047d9190610d9e565b92505081905550816001600160a01b0316630dca59c16040518163ffffffff1660e01b8152600401602060405180830381865afa1580156104c2573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104e69190610d4d565b600260008282546104f79190610d9e565b9091555050604051633f02cd9160e11b81526001600160a01b03848116600483015260009190861690637e059b2290602401602060405180830381865afa158015610546573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061056a9190610d4d565b90506105768282610db7565b6000546105839084610dca565b61058d9190610de1565b60008082825461059d9190610d9e565b909155506105b890506001600160a01b038516333085610a0c565b6040516328a0e71b60e01b81526001600160a01b03858116600483015233602483015260006044830152606482018490528616906328a0e71b90608401600060405180830381600087803b15801561060f57600080fd5b505af1158015610623573d6000803e3d6000fd5b505050505050505050565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146106b85760405162461bcd60e51b815260206004820152602960248201527f3162303233206f6e6c792074686520666163746f727920697320616c6c6f776560448201526819081d1bc818d85b1b60ba1b606482015260840161032b565b60405163095ea7b360e01b81526001600160a01b03828116600483015260001960248301527f0000000000000000000000000000000000000000000000000000000000000000169063095ea7b3906044015b6020604051808303816000875af1158015610729573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061074d9190610d66565b5050565b60026064610768670de0b6b3a76400006001610dca565b6107729190610de1565b61077c9190610de1565b81565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146108095760405162461bcd60e51b815260206004820152602960248201527f6366656333206f6e6c792074686520666163746f727920697320616c6c6f776560448201526819081d1bc818d85b1b60ba1b606482015260840161032b565b60405163095ea7b360e01b81526001600160a01b038281166004830152600060248301527f0000000000000000000000000000000000000000000000000000000000000000169063095ea7b39060440161070a565b6064610772670de0b6b3a76400006005610dca565b6064610888670de0b6b3a76400006001610dca565b6108929190610de1565b61077c90600a610dca565b6064610772670de0b6b3a76400006001610dca565b6040516359eaf06760e11b81526001600160a01b037f00000000000000000000000000000000000000000000000000000000000000008181166004840152336024840152917f00000000000000000000000000000000000000000000000000000000000000009091169063b3d5e0ce90604401602060405180830381865afa158015610942573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109669190610d66565b6109c25760405162461bcd60e51b815260206004820152602760248201527f6330653331206d7573742062652063616c6c65642066726f6d20612076616c69604482015266642074726f766560c81b606482015260840161032b565b82600160008282546109d49190610db7565b9250508190555081600260008282546109ed9190610db7565b90915550610a0790506001600160a01b0382163385610a7d565b505050565b6040516001600160a01b0380851660248301528316604482015260648101829052610a779085906323b872dd60e01b906084015b60408051601f198184030181529190526020810180516001600160e01b03166001600160e01b031990931692909217909152610aad565b50505050565b6040516001600160a01b038316602482015260448101829052610a0790849063a9059cbb60e01b90606401610a40565b6000610b02826040518060400160405280602081526020017f5361666545524332303a206c6f772d6c6576656c2063616c6c206661696c6564815250856001600160a01b0316610b7f9092919063ffffffff16565b805190915015610a075780806020019051810190610b209190610d66565b610a075760405162461bcd60e51b815260206004820152602a60248201527f5361666545524332303a204552433230206f7065726174696f6e20646964206e6044820152691bdd081cdd58d8d9595960b21b606482015260840161032b565b6060610b8e8484600085610b98565b90505b9392505050565b606082471015610bf95760405162461bcd60e51b815260206004820152602660248201527f416464726573733a20696e73756666696369656e742062616c616e636520666f6044820152651c8818d85b1b60d21b606482015260840161032b565b6001600160a01b0385163b610c505760405162461bcd60e51b815260206004820152601d60248201527f416464726573733a2063616c6c20746f206e6f6e2d636f6e7472616374000000604482015260640161032b565b600080866001600160a01b03168587604051610c6c9190610e27565b60006040518083038185875af1925050503d8060008114610ca9576040519150601f19603f3d011682016040523d82523d6000602084013e610cae565b606091505b5091509150610cbe828286610cc9565b979650505050505050565b60608315610cd8575081610b91565b825115610ce85782518084602001fd5b8160405162461bcd60e51b815260040161032b9190610e43565b600060208284031215610d1457600080fd5b81356001600160a01b0381168114610b9157600080fd5b60008060408385031215610d3e57600080fd5b50508035926020909101359150565b600060208284031215610d5f57600080fd5b5051919050565b600060208284031215610d7857600080fd5b81518015158114610b9157600080fd5b634e487b7160e01b600052601160045260246000fd5b80820180821115610db157610db1610d88565b92915050565b81810381811115610db157610db1610d88565b8082028115828204841417610db157610db1610d88565b600082610dfe57634e487b7160e01b600052601260045260246000fd5b500490565b60005b83811015610e1e578181015183820152602001610e06565b50506000910152565b60008251610e39818460208701610e03565b9190910192915050565b6020815260008251806020840152610e62816040850160208701610e03565b601f01601f1916919091016040019291505056fea26469706673582212204d23034afef78d3e6d06ca0d47995fd2d2652a592a249fcf1433b9686069eb0964736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061010b5760003560e01c8063a20baee6116100a2578063b2016bd411610071578063b2016bd414610195578063b85a8b20146101d4578063c45a0155146101dc578063d8dfeb4514610203578063fe373cb81461020c57600080fd5b8063a20baee614610176578063abdc554114610185578063aceb2d0414610152578063ad09014d1461018d57600080fd5b8063517ef1d7116100de578063517ef1d71461015257806366501ae51461015a5780636a31b4ca14610163578063923c1eec1461017657600080fd5b8063098d3228146101105780630dca59c11461012c57806328a07025146101355780633f877ca41461013f575b600080fd5b61011960001981565b6040519081526020015b60405180910390f35b61011960025481565b61013d61021f565b005b61013d61014d366004610d02565b61062e565b610119610751565b61011960005481565b61013d610171366004610d02565b61077f565b610119670de0b6b3a764000081565b61011961085e565b610119610873565b6101bc7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b039091168152602001610123565b61011961089d565b6101bc7f000000000000000000000000000000000000000000000000000000000000000081565b61011960015481565b61013d61021a366004610d2b565b6108b2565b6040516304b91f7360e51b81527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0381811660048401527f000000000000000000000000000000000000000000000000000000000000000092600191841690639723ee6090602401602060405180830381865afa1580156102ab573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102cf9190610d4d565b116103345760405162461bcd60e51b815260206004820152602a60248201527f633065333520746865206c6173742074726f76652063616e206e6f74206265206044820152691b1a5c5d5a59185d195960b21b60648201526084015b60405180910390fd5b6040516359eaf06760e11b81526001600160a01b03828116600483015233602483015283169063b3d5e0ce90604401602060405180830381865afa158015610380573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103a49190610d66565b6104005760405162461bcd60e51b815260206004820152602760248201527f6330653335206d7573742062652063616c6c65642066726f6d20612076616c69604482015266642074726f766560c81b606482015260840161032b565b60003390506000816001600160a01b031663673a1ac26040518163ffffffff1660e01b8152600401602060405180830381865afa158015610445573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104699190610d4d565b9050806001600082825461047d9190610d9e565b92505081905550816001600160a01b0316630dca59c16040518163ffffffff1660e01b8152600401602060405180830381865afa1580156104c2573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104e69190610d4d565b600260008282546104f79190610d9e565b9091555050604051633f02cd9160e11b81526001600160a01b03848116600483015260009190861690637e059b2290602401602060405180830381865afa158015610546573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061056a9190610d4d565b90506105768282610db7565b6000546105839084610dca565b61058d9190610de1565b60008082825461059d9190610d9e565b909155506105b890506001600160a01b038516333085610a0c565b6040516328a0e71b60e01b81526001600160a01b03858116600483015233602483015260006044830152606482018490528616906328a0e71b90608401600060405180830381600087803b15801561060f57600080fd5b505af1158015610623573d6000803e3d6000fd5b505050505050505050565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146106b85760405162461bcd60e51b815260206004820152602960248201527f3162303233206f6e6c792074686520666163746f727920697320616c6c6f776560448201526819081d1bc818d85b1b60ba1b606482015260840161032b565b60405163095ea7b360e01b81526001600160a01b03828116600483015260001960248301527f0000000000000000000000000000000000000000000000000000000000000000169063095ea7b3906044015b6020604051808303816000875af1158015610729573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061074d9190610d66565b5050565b60026064610768670de0b6b3a76400006001610dca565b6107729190610de1565b61077c9190610de1565b81565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146108095760405162461bcd60e51b815260206004820152602960248201527f6366656333206f6e6c792074686520666163746f727920697320616c6c6f776560448201526819081d1bc818d85b1b60ba1b606482015260840161032b565b60405163095ea7b360e01b81526001600160a01b038281166004830152600060248301527f0000000000000000000000000000000000000000000000000000000000000000169063095ea7b39060440161070a565b6064610772670de0b6b3a76400006005610dca565b6064610888670de0b6b3a76400006001610dca565b6108929190610de1565b61077c90600a610dca565b6064610772670de0b6b3a76400006001610dca565b6040516359eaf06760e11b81526001600160a01b037f00000000000000000000000000000000000000000000000000000000000000008181166004840152336024840152917f00000000000000000000000000000000000000000000000000000000000000009091169063b3d5e0ce90604401602060405180830381865afa158015610942573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109669190610d66565b6109c25760405162461bcd60e51b815260206004820152602760248201527f6330653331206d7573742062652063616c6c65642066726f6d20612076616c69604482015266642074726f766560c81b606482015260840161032b565b82600160008282546109d49190610db7565b9250508190555081600260008282546109ed9190610db7565b90915550610a0790506001600160a01b0382163385610a7d565b505050565b6040516001600160a01b0380851660248301528316604482015260648101829052610a779085906323b872dd60e01b906084015b60408051601f198184030181529190526020810180516001600160e01b03166001600160e01b031990931692909217909152610aad565b50505050565b6040516001600160a01b038316602482015260448101829052610a0790849063a9059cbb60e01b90606401610a40565b6000610b02826040518060400160405280602081526020017f5361666545524332303a206c6f772d6c6576656c2063616c6c206661696c6564815250856001600160a01b0316610b7f9092919063ffffffff16565b805190915015610a075780806020019051810190610b209190610d66565b610a075760405162461bcd60e51b815260206004820152602a60248201527f5361666545524332303a204552433230206f7065726174696f6e20646964206e6044820152691bdd081cdd58d8d9595960b21b606482015260840161032b565b6060610b8e8484600085610b98565b90505b9392505050565b606082471015610bf95760405162461bcd60e51b815260206004820152602660248201527f416464726573733a20696e73756666696369656e742062616c616e636520666f6044820152651c8818d85b1b60d21b606482015260840161032b565b6001600160a01b0385163b610c505760405162461bcd60e51b815260206004820152601d60248201527f416464726573733a2063616c6c20746f206e6f6e2d636f6e7472616374000000604482015260640161032b565b600080866001600160a01b03168587604051610c6c9190610e27565b60006040518083038185875af1925050503d8060008114610ca9576040519150601f19603f3d011682016040523d82523d6000602084013e610cae565b606091505b5091509150610cbe828286610cc9565b979650505050505050565b60608315610cd8575081610b91565b825115610ce85782518084602001fd5b8160405162461bcd60e51b815260040161032b9190610e43565b600060208284031215610d1457600080fd5b81356001600160a01b0381168114610b9157600080fd5b60008060408385031215610d3e57600080fd5b50508035926020909101359150565b600060208284031215610d5f57600080fd5b5051919050565b600060208284031215610d7857600080fd5b81518015158114610b9157600080fd5b634e487b7160e01b600052601160045260246000fd5b80820180821115610db157610db1610d88565b92915050565b81810381811115610db157610db1610d88565b8082028115828204841417610db157610db1610d88565b600082610dfe57634e487b7160e01b600052601260045260246000fd5b500490565b60005b83811015610e1e578181015183820152602001610e06565b50506000910152565b60008251610e39818460208701610e03565b9190910192915050565b6020815260008251806020840152610e62816040850160208701610e03565b601f01601f1916919091016040019291505056fea26469706673582212204d23034afef78d3e6d06ca0d47995fd2d2652a592a249fcf1433b9686069eb0964736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "approveTrove(address)": {
+        "details": "to approve trove, and let it liquidate itself further",
+        "params": {
+          "_trove": "address of the trove"
+        }
+      },
+      "claimCollateralAndDebt(uint256,uint256)": {
+        "details": "to transfer collateral and decrease collateral and debt in the pool",
+        "params": {
+          "_unclaimedCollateral": "unclaimed collateral calculated in the trove",
+          "_unclaimedDebt": "the unclaimed debt calculated in the trove"
+        }
+      },
+      "liquidate()": {
+        "details": "liquidates the trove that called it"
+      },
+      "unapproveTrove(address)": {
+        "details": "to unapprove trove, forbid it to liquidate itself further",
+        "params": {
+          "_trove": "address of the trove"
+        }
+      }
+    },
+    "title": "is used in case when stabilityPool is empty or not enough to liquidate trove",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 6855,
+        "contract": "contracts/community-liquidation-pool.sol:CommunityLiquidationPool",
+        "label": "liqTokenRate",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 6858,
+        "contract": "contracts/community-liquidation-pool.sol:CommunityLiquidationPool",
+        "label": "collateral",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 6861,
+        "contract": "contracts/community-liquidation-pool.sol:CommunityLiquidationPool",
+        "label": "debt",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

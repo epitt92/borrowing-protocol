@@ -1,0 +1,55 @@
+#!groovy
+
+// Global configs
+properties([
+  disableResume(),
+  disableConcurrentBuilds(abortPrevious: true),
+  buildDiscarder(logRotator(numToKeepStr: '10'))
+])
+
+utils.cancelPreviousJobs()
+
+// GLOBAL variables, used in all scopes, sometimes overriden but accessible globally.
+APP         = 'bonq'
+SERVICE     = 'deployer'
+REPO        = 'https://github.com/bonq-ch/borrowing-protocol'
+REPO_URL    = 'registry.digitalocean.com/bonq-ch'
+ENVIRONMENT = 'dev'
+
+COMPOSE_FILE_NAME       = 'docker-compose.yaml'
+COMPOSE_TEST_FILE_NAME  = 'docker-compose.test.yml'
+
+node {
+  stage('Fetch code') {
+    GIT = git.checkoutRepository(REPO)
+  }
+
+  (
+    COMPOSE_NAME,
+    COMPOSE_COMMAND,
+    COMPOSE_TEST_COMMAND
+  ) = dockerCustom.setupCompose(APP, ENVIRONMENT, COMPOSE_FILE_NAME, COMPOSE_TEST_FILE_NAME)
+
+  try {
+    stage('Build containers') {
+      sh 'cp .env.merge .env'
+      imageURL = "${REPO_URL}/${SERVICE}:latest"
+      dockerCustom.setImageName(imageURL, SERVICE, COMPOSE_TEST_FILE_NAME)
+      sh "${COMPOSE_TEST_COMMAND} build --pull"
+    }
+
+    stage('Push tag runner image') {
+      digitalocean.pushImages(COMPOSE_TEST_FILE_NAME, COMPOSE_NAME)
+    }
+  } catch (err) {
+    echo err.getMessage()
+    echo 'Failing and cleaning up'
+    currentBuild.result = 'FAILURE'
+  } finally {
+    // stage('Send Slack notification') {
+    //   notifications.sendSlackNotification(git.changelogFromCommits(), env.BRANCH_NAME, ENVIRONMENT, SLACK_CHANNEL)
+    // }
+
+    utils.postJobCleanup(COMPOSE_NAME, COMPOSE_TEST_FILE_NAME)
+  }
+}

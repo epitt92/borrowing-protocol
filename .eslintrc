@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "prettier", "no-only-tests"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "env": { "node": true },
+  "rules": {
+    "no-console": 1, // Means warning, 0 to skip
+    "prettier/prettier": 2, // Means error
+    "no-only-tests/no-only-tests": "error",
+    // "@typescript-eslint/no-floating-promises": 2,
+    "@typescript-eslint/ban-ts-comment": 1,
+    "@typescript-eslint/no-var-requires": 0
+  }
+}

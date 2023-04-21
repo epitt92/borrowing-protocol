@@ -1,0 +1,179 @@
+{
+  "address": "0xa1620Af6138D2754F7250299DC9024563bd1a5D6",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_oracle",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_queryId",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "average",
+          "type": "uint256"
+        }
+      ],
+      "name": "PriceUpdate",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "emitPriceSignal",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "oracle",
+      "outputs": [
+        {
+          "internalType": "contract ITellorFeed",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pricePoint",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "queryId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xd24188e40b0ec49ba75837183503a219ad84737049cedfe83cf4b5c5ab34be55",
+  "receipt": {
+    "to": null,
+    "from": "0xC74BEd4d5b1110458d954e772272Bc05859b81bD",
+    "contractAddress": "0xa1620Af6138D2754F7250299DC9024563bd1a5D6",
+    "transactionIndex": 51,
+    "gasUsed": "260784",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000008000000000040000000000008000000000000000000000000000000080000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000080000200000000000000000000000000000000000000000000000000000000000004000000000000000000001000000000800000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000100000",
+    "blockHash": "0x77d202feb5922ec597d31e7d753ec6f2a7514ace5c968361cbb8021d84263277",
+    "transactionHash": "0xd24188e40b0ec49ba75837183503a219ad84737049cedfe83cf4b5c5ab34be55",
+    "logs": [
+      {
+        "transactionIndex": 51,
+        "blockNumber": 36542739,
+        "transactionHash": "0xd24188e40b0ec49ba75837183503a219ad84737049cedfe83cf4b5c5ab34be55",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000c74bed4d5b1110458d954e772272bc05859b81bd",
+          "0x000000000000000000000000f0245f6251bef9447a08766b9da2b07b28ad80b0"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000023b3865bf85520000000000000000000000000000000000000000000000007733c9c824cf0aa810000000000000000000000000000000000000000000003b07619b04daa0aafe90000000000000000000000000000000000000000000000077318e8fbf0f855610000000000000000000000000000000000000000000003b0763d63d406030509",
+        "logIndex": 240,
+        "blockHash": "0x77d202feb5922ec597d31e7d753ec6f2a7514ace5c968361cbb8021d84263277"
+      }
+    ],
+    "blockNumber": 36542739,
+    "cumulativeGasUsed": "8593111",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x8f55D884CAD66B79e1a131f6bCB0e66f4fD84d5B",
+    "0x35b2ECE5B1eD6a7a99b83508F8ceEAB8661E0632",
+    "0x12906c5e9178631dba86f1f750f7ab7451c61e6357160eb890029b9eac1fb235"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "bf3d4309507180ad8123e30dbce5d19e",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_queryId\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"average\",\"type\":\"uint256\"}],\"name\":\"PriceUpdate\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"emitPriceSignal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"contract ITellorFeed\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"price\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pricePoint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"queryId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/tellor-price-feed.sol\":\"TellorPriceFeed\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/interfaces/IOwnable.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\ninterface IOwnable {\\n  /**\\n   * @dev Returns the address of the current owner.\\n   */\\n  function owner() external view returns (address);\\n\\n  /**\\n   * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n   * Can only be called by the current owner.\\n   */\\n  function transferOwnership(address newOwner) external;\\n}\\n\",\"keccak256\":\"0x955ead6c2a923863ba607a752e4a9924ab4fe4d07dd6cf09e5f68d0bece11049\",\"license\":\"MIT\"},\"contracts/interfaces/IPriceFeed.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\ninterface IPriceFeed {\\n  function token() external view returns (address);\\n\\n  function price() external view returns (uint256);\\n\\n  function pricePoint() external view returns (uint256);\\n\\n  function emitPriceSignal() external;\\n\\n  event PriceUpdate(address token, uint256 price, uint256 average);\\n}\\n\",\"keccak256\":\"0x57a011d8bc429249a622be078f750d045d2d9a1bb0b153968848cc8895eb02b3\",\"license\":\"MIT\"},\"contracts/interfaces/ITokenPriceFeed.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.4;\\n\\nimport \\\"./IOwnable.sol\\\";\\n\\ninterface ITokenPriceFeed is IOwnable {\\n  struct TokenInfo {\\n    address priceFeed;\\n    uint256 mcr;\\n    uint256 mrf; // Maximum Redemption Fee\\n  }\\n\\n  function tokenPriceFeed(address) external view returns (address);\\n\\n  function tokenPrice(address _token) external view returns (uint256);\\n\\n  function mcr(address _token) external view returns (uint256);\\n\\n  function mrf(address _token) external view returns (uint256);\\n\\n  function setTokenPriceFeed(\\n    address _token,\\n    address _priceFeed,\\n    uint256 _mcr,\\n    uint256 _maxRedemptionFeeBasisPoints\\n  ) external;\\n\\n  function emitPriceUpdate(\\n    address _token,\\n    uint256 _priceAverage,\\n    uint256 _pricePoint\\n  ) external;\\n\\n  event NewTokenPriceFeed(address _token, address _priceFeed, string _name, string _symbol, uint256 _mcr, uint256 _mrf);\\n  event PriceUpdate(address token, uint256 priceAverage, uint256 pricePoint);\\n}\\n\",\"keccak256\":\"0x1464b339e10e5bcdff774c69d9092696bc4e64c2a1fcbe66120fcdcd72d17a2d\",\"license\":\"MIT\"},\"contracts/tellor-price-feed.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.17;\\n\\nimport \\\"./interfaces/IPriceFeed.sol\\\";\\nimport \\\"./interfaces/ITokenPriceFeed.sol\\\";\\n\\ninterface ITellorFeed {\\n  function getCurrentValue(bytes32 _queryId) external view returns (bytes calldata _value);\\n}\\n\\ncontract TellorPriceFeed is IPriceFeed {\\n  ITellorFeed public immutable oracle;\\n  address public immutable override token;\\n  bytes32 public immutable queryId;\\n\\n  constructor(\\n    address _oracle,\\n    address _token,\\n    bytes32 _queryId\\n  ) {\\n    require(_oracle != address(0x0), \\\"e2637b _oracle must not be address 0x0\\\");\\n    require(_token != address(0x0), \\\"e2637b _token must not be address 0x0\\\");\\n    require(_queryId.length > 0, \\\"e2637b _queryId must not be 0 length\\\");\\n\\n    token = _token;\\n    oracle = ITellorFeed(_oracle);\\n    queryId = _queryId;\\n  }\\n\\n  function price() public view virtual override returns (uint256) {\\n    return uint256(bytes32(oracle.getCurrentValue(queryId)));\\n  }\\n\\n  function pricePoint() public view override returns (uint256) {\\n    return price();\\n  }\\n\\n  function emitPriceSignal() public override {\\n    emit PriceUpdate(token, price(), price());\\n  }\\n}\\n\",\"keccak256\":\"0xb3dbe94809a26e086380274f774c203abf401e1fb0b2af285c9cc415b29fdcd7\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60e060405234801561001057600080fd5b5060405161055738038061055783398101604081905261002f91610134565b6001600160a01b0383166100995760405162461bcd60e51b815260206004820152602660248201527f653236333762205f6f7261636c65206d757374206e6f7420626520616464726560448201526507373203078360d41b60648201526084015b60405180910390fd5b6001600160a01b0382166100fd5760405162461bcd60e51b815260206004820152602560248201527f653236333762205f746f6b656e206d757374206e6f7420626520616464726573604482015264073203078360dc1b6064820152608401610090565b6001600160a01b0391821660a052911660805260c052610170565b80516001600160a01b038116811461012f57600080fd5b919050565b60008060006060848603121561014957600080fd5b61015284610118565b925061016060208501610118565b9150604084015190509250925092565b60805160a05160c0516103a66101b160003960008181606c015261013f01526000818160ff015261021001526000818160a6015261016801526103a66000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c80633f1be4d4146100675780637dc0d1d0146100a1578063a013991c146100e0578063a035b1fe146100e8578063ab96f86a146100f0578063fc0c546a146100fa575b600080fd5b61008e7f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100c87f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b039091168152602001610098565b61008e610121565b61008e610130565b6100f86101ed565b005b6100c87f000000000000000000000000000000000000000000000000000000000000000081565b600061012b610130565b905090565b60405163adf1639d60e01b81527f000000000000000000000000000000000000000000000000000000000000000060048201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063adf1639d90602401600060405180830381865afa1580156101b7573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526101df919081019061027f565b6101e890610349565b919050565b7fac7b695c6873047ad50339f850f4ae3f6b8f6ef63ed1a8b22f7d36a1c6bd46f37f0000000000000000000000000000000000000000000000000000000000000000610237610130565b61023f610130565b604080516001600160a01b03909416845260208401929092529082015260600160405180910390a1565b634e487b7160e01b600052604160045260246000fd5b6000602080838503121561029257600080fd5b825167ffffffffffffffff808211156102aa57600080fd5b818501915085601f8301126102be57600080fd5b8151818111156102d0576102d0610269565b604051601f8201601f19908116603f011681019083821181831017156102f8576102f8610269565b81604052828152888684870101111561031057600080fd5b600093505b828410156103325784840186015181850187015292850192610315565b600086848301015280965050505050505092915050565b8051602080830151919081101561036a576000198160200360031b1b821691505b5091905056fea2646970667358221220e9fe65ad3dace6411dc505b4273ed0ebdfee29bc379dc1b19a67cd6b2c41074364736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80633f1be4d4146100675780637dc0d1d0146100a1578063a013991c146100e0578063a035b1fe146100e8578063ab96f86a146100f0578063fc0c546a146100fa575b600080fd5b61008e7f000000000000000000000000000000000000000000000000000000000000000081565b6040519081526020015b60405180910390f35b6100c87f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b039091168152602001610098565b61008e610121565b61008e610130565b6100f86101ed565b005b6100c87f000000000000000000000000000000000000000000000000000000000000000081565b600061012b610130565b905090565b60405163adf1639d60e01b81527f000000000000000000000000000000000000000000000000000000000000000060048201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063adf1639d90602401600060405180830381865afa1580156101b7573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526101df919081019061027f565b6101e890610349565b919050565b7fac7b695c6873047ad50339f850f4ae3f6b8f6ef63ed1a8b22f7d36a1c6bd46f37f0000000000000000000000000000000000000000000000000000000000000000610237610130565b61023f610130565b604080516001600160a01b03909416845260208401929092529082015260600160405180910390a1565b634e487b7160e01b600052604160045260246000fd5b6000602080838503121561029257600080fd5b825167ffffffffffffffff808211156102aa57600080fd5b818501915085601f8301126102be57600080fd5b8151818111156102d0576102d0610269565b604051601f8201601f19908116603f011681019083821181831017156102f8576102f8610269565b81604052828152888684870101111561031057600080fd5b600093505b828410156103325784840186015181850187015292850192610315565b600086848301015280965050505050505092915050565b8051602080830151919081101561036a576000198160200360031b1b821691505b5091905056fea2646970667358221220e9fe65ad3dace6411dc505b4273ed0ebdfee29bc379dc1b19a67cd6b2c41074364736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

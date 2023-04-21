@@ -1,0 +1,14 @@
+[profile.default]
+src = 'contracts'
+test = 'forge-test'
+script = 'forge-script'
+out = 'out'
+libs = ['lib']
+
+[fmt]
+line_length = 180
+tab_width = 2
+bracket_spacing = true
+number_underscore = 'thousands'
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

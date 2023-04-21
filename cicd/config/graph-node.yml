@@ -1,0 +1,48 @@
+common: &common
+  name: graph-node
+  serviceSpecificSecret: True
+  secretPath: simulation/graph-node
+  affinity: False
+  image: graphprotocol/graph-node
+  ports:
+    - name: http
+      source: 8000
+      target: 8000
+    - name: ws
+      source: 8001
+      target: 8001
+    - name: admin
+      source: 8020
+      target: 8020
+    - name: index
+      source: 8030
+      target: 8030
+    - name: prometheus
+      source: 8040
+      target: 8040
+  environment:
+    - name: postgres_host
+      value: postgres
+    - name: postgres_user
+      value: graph-node
+    - name: postgres_pass
+      value: let-me-in
+    - name: postgres_db
+      value: graph-node
+    - name: ipfs
+      value: 'ipfs:5001'
+    - name: ethereum
+      value: 'mainnet:http://ganache:8545'
+    - name: GRAPH_LOG
+      value: info
+  resources:
+    limits:
+      cpu: 250m
+      memory: 500M
+    requests:
+      cpu: 150m
+      memory: 500M
+
+simulation:
+  <<: *common
+  namespace: simulation
